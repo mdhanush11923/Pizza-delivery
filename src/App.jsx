@@ -46,7 +46,7 @@ export default function Entry() {
   }
 
   return (
-    <div className="h-dvh flex flex-wrap flex-row-reverse items-center justify-around p-10 bg-[orange]">
+    <div className="h-dvh flex flex-wrap flex-row-reverse items-center justify-around p-10 bg-[#FEC369]">
       <Card className="px-6 py-6 w-[420px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
