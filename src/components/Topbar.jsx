@@ -18,7 +18,7 @@ export default function Topbar(props) {
 
   const { pathname } = useLocation();
   console.log(pathname);
-  
+
   return (
     <Navbar classNames={{
       item: [
@@ -67,7 +67,7 @@ export default function Topbar(props) {
         </NavbarItem> */}
         <NavbarItem>
           <Tabs selectedKey={pathname} color="success" size="lg" variant="underlined" aria-label="Tabs variants">
-            <Tab key="/pizza-delivery" href="/pizza-delivery" title="Home" />
+            <Tab key="/pizza-delivery/" href="/pizza-delivery/" title="Home" />
             <Tab key="/pizza-delivery/menu" href="/pizza-delivery/menu" title="Menu" />
             <Tab key="/pizza-delivery/custom" href="/pizza-delivery/custom" title="Custom" />
             <Tab key="/pizza-delivery/orders" href="/pizza-delivery/orders" title="Orders" />
