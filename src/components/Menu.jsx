@@ -14,8 +14,6 @@ export default function Menu() {
   return (
     <div className="flex h-screen">
       <PizzaItem/>
-      <PizzaItem/>
-      
     </div>
 
   );

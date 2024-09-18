@@ -133,7 +133,7 @@ export default function PizzaItem() {
     //     </Card>
 
     <Card className=" flex flex-col h-96 bg-[orange] items-center shadow-none" >
-      <Card className="w-full justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-none">
+      <Card className="w-[200px] justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-none">
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>
