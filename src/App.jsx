@@ -16,7 +16,7 @@ export default function App() {
     <NextUIProvider navigate={navigate} useHref={useHref}>
       {/* Your app here... */}
       <Routes>
-        <Route path="/" element={<h1>hello world</h1>} />
+        <Route path="/" element={<a href="/inside">click here</a>} />
         <Route path="/inside" element={<h1>how are you</h1>} />
       </Routes>
     </NextUIProvider>
