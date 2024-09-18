@@ -95,7 +95,7 @@ export default function Topbar(props) {
                 index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
               }
               className="w-full"
-              href="#"
+              href={`/pizza-delivery/${item}`}
               size="lg"
             >
               {item}
