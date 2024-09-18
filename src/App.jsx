@@ -1,8 +1,11 @@
 import React from "react";
+import PizzaCustomization from "./components/PizzaCustomization";
+import Content from "./components/Content";
 import Topbar from "./components/Topbar";
 import { Routes, Route, useNavigate, useHref } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import Entry from "./components/Entry";
+import Menu from "./components/Menu";
 import Layout from "./components/Layout";
 
 export default function App() {
@@ -16,8 +19,13 @@ export default function App() {
     <NextUIProvider navigate={navigate} useHref={useHref}>
       {/* Your app here... */}
       <Routes>
-        <Route path="/pizza-delivery/" element={<a href="/pizza-delivery/inside/">click here</a>} />
-        <Route path="/pizza-delivery/inside/" element={<h1>how are you</h1>} />
+        <Route path="/pizza-delivery/" element={<Layout darkMode={darkMode} changeMode={changeMode} />}>
+          <Route index element={<Content />} />
+          <Route path="/pizza-delivery/menu" element={<Menu />} />
+          <Route path="/pizza-delivery/custom" element={<PizzaCustomization />} />
+          <Route path="/pizza-delivery/orders" element={<h1>orders</h1>} />
+        </Route>
+        <Route path="/pizza-delivery/entry" element={<Entry />} />
       </Routes>
     </NextUIProvider>
 
