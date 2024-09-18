@@ -69,19 +69,18 @@ export default function Topbar(props) {
           <ThemeSwitcher onSwitch={props.onSwitch} condition={props.condition} />
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu isOpen={isMenuOpen}>
+      <NavbarMenu className="bg-inherit" isOpen={isMenuOpen}>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.title}-${index}`}>
             <Button
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              className="hover:text-[green] w-full"
+              color="default"
+              className={`text-${props.condition? "white": "black"} w-full`}
               onClick={() => handleMenuItemClick(item.path)}
               size="lg"
-              variant="link"
+              variant="light"
+              radius="sm"
             >
-              {item.title}
+              <p> {item.title} </p>
             </Button>
           </NavbarMenuItem>
         ))}
