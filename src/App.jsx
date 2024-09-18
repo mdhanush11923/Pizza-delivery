@@ -17,7 +17,7 @@ export default function App() {
       {/* Your app here... */}
       <Routes>
         <Route path="/" element={<a href="/pizza-delivery/inside">click here</a>} />
-        <Route path="/inside" element={<h1>how are you</h1>} />
+        <Route path="/pizza-delivery/inside" element={<h1>how are you</h1>} />
       </Routes>
     </NextUIProvider>
 
