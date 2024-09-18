@@ -70,20 +70,22 @@ export default function Topbar(props) {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="bg-inherit" isOpen={isMenuOpen}>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item.title}-${index}`}>
-            <Button
-              color="default"
-              className={`text-${props.condition? "white": "black"} w-full`}
-              onClick={() => handleMenuItemClick(item.path)}
-              size="lg"
-              variant="light"
-              radius="sm"
-            >
-              <p> {item.title} </p>
-            </Button>
-          </NavbarMenuItem>
-        ))}
+        <div className={`bg-${props.condition? "black":"white"} h-full`}>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item.title}-${index}`}>
+              <Button
+                color="default"
+                className={`text-${props.condition ? "white" : "black"} w-full `}
+                onClick={() => handleMenuItemClick(item.path)}
+                size="lg"
+                variant="light"
+                radius="sm"
+              >
+                <p> {item.title} </p>
+              </Button>
+            </NavbarMenuItem>
+          ))}
+        </div>
       </NavbarMenu>
     </Navbar>
   );
