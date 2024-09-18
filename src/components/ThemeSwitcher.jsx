@@ -9,6 +9,7 @@ export const ThemeSwitcher = (props) => {
     <Switch
       defaultSelected
       size="md"
+      color="success"
       onChange={() => props.onSwitch(props.condition)}
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (

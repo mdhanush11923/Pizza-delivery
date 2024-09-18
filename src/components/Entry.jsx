@@ -75,7 +75,7 @@ export default function Entry() {
                     variant="solid"
                     size="lg"
                     onPress={() => console.log(loginDetails)}
-                    href="/"
+                    href="/pizza-delivery/"
                   >
                     Login
                   </Button>
@@ -107,7 +107,7 @@ export default function Entry() {
                   variant="solid"
                   size="lg"
                   onPress={()=>console.log(details)}
-                  href="/"
+                  href="/pizza-delivery/"
                 >
                   Sign Up
                 </Button>

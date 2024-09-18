@@ -27,7 +27,7 @@ export default function Home() {
                 color="success"
                 radius="md"
                 size="lg"
-                href="/menu"
+                href="/pizza-delivery/menu"
                 as={Link}
               >
                   Order Now
@@ -44,7 +44,7 @@ export default function Home() {
         Featured Pizzas
       </h1>
       
-      
+
     </div>
   );
 }

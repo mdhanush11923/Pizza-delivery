@@ -17,7 +17,6 @@ export default function Topbar(props) {
   ];
 
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <Navbar classNames={{
@@ -77,7 +76,7 @@ export default function Topbar(props) {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">
-          <Link href="/pizza-delivery/entry">Login</Link>
+          <Link color="success" href="/pizza-delivery/entry">Login</Link>
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Button as={Link} href="/pizza-delivery/entry" color="success" variant="flat">
