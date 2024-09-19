@@ -12,8 +12,12 @@ export default function Menu() {
 
 
   return (
-    <div className="flex h-screen">
-      <PizzaItem/>
+    <div className="flex p-10">
+      <div className="flex flex-wrap justify gap-6 justify-evenly">
+        {Array(10).fill(null).map((_, index) => (
+          <PizzaItem key={index} />
+        ))}
+      </div>
     </div>
 
   );

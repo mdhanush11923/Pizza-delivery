@@ -20,17 +20,28 @@ export default function Home() {
               Craving pizza? We’ve got you covered! Hot, fresh, and delivered
               fast!
             </h2>
-            <div className="mt-14 w-40">
+            <div className="flex gap-4 mt-14 w-40">
               <Button
                 fullWidth
-                className="text-[white]"
-                color="success"
+                color="primary"
                 radius="md"
                 size="lg"
                 href="/pizza-delivery/menu"
                 as={Link}
+                variant="ghost"
               >
-                  Order Now
+                  Login
+              </Button>
+              <Button
+                fullWidth
+                color="primary"
+                radius="md"
+                size="lg"
+                href="/pizza-delivery/menu"
+                as={Link}
+                variant="solid"
+              >
+                Sign up
               </Button>
             </div>
           </div>
@@ -43,8 +54,19 @@ export default function Home() {
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl">
         Featured Pizzas
       </h1>
+      <div className="flex flex-wrap justify gap-6 justify-evenly">
+        {Array(5).fill(null).map((_, index) => (
+          <PizzaItem key={index} />
+        ))}
+      </div>
       
-
+      <footer className="home-footer w-full text-center">
+        <p>&copy; 2024 Pizza Delivery. All rights reserved.</p>
+        <nav className="flex gap-4 justify-center">
+          <Link>Terms and Conditions</Link>
+          <Link>Privacy Policy</Link>
+        </nav>
+      </footer>
     </div>
   );
 }

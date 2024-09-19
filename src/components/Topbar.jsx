@@ -58,10 +58,10 @@ export default function Topbar(props) {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">
-          <Link color="success" href="/pizza-delivery/entry">Login</Link>
+          <Link color="primary" variant="light" href="/pizza-delivery/entry">Login</Link>
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button as={Link} href="/pizza-delivery/entry" color="success" variant="flat">
+          <Button as={Link} href="/pizza-delivery/entry" color="warning" variant="flat">
             Sign up
           </Button>
         </NavbarItem>
@@ -70,12 +70,12 @@ export default function Topbar(props) {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="bg-inherit" isOpen={isMenuOpen}>
-        <div className={`bg-${props.condition? "black":"white"} h-full`}>
+        <div className={`bg-${props.condition? "blck":"white"} h-full`}>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.title}-${index}`}>
               <Button
-                color="default"
-                className={`text-${props.condition ? "white" : "black"} w-full `}
+                color={index === 4 ? "danger" : "default"}
+                className={`text-${props.condition ? "white" : "black"} ${index===4 && "text-danger"} w-full `}
                 onClick={() => handleMenuItemClick(item.path)}
                 size="lg"
                 variant="light"

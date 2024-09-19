@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Card, CardHeader, CardBody, CardFooter, Image } from "@nextui-org/react";
 import PizzaImg from "../Images/pizza.jpg";
 import { Divider } from "@nextui-org/react";
@@ -7,7 +8,8 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import { Input } from "@nextui-org/react";
 import { Checkbox } from "@nextui-org/react";
-
+import ArrowDropDownCircleSharpIcon from '@mui/icons-material/ArrowDropDownCircleSharp';
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react";
 
 
 function DemoModal() {
@@ -100,6 +102,45 @@ function DemoPopOver() {
   );
 }
 
+function DemoDropDown() {
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
+
+  const selectedValue = React.useMemo(
+    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    [selectedKeys]
+  );
+
+  return (
+    <Dropdown>
+      <DropdownTrigger>
+        <Button
+          fullWidth
+          className="capitalize bg-background text-forground"
+          radius="sm"
+          color="warning"
+        >
+          {selectedValue} 
+          <ArrowDropDownCircleSharpIcon />
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu
+        aria-label="Single selection example"
+        variant="flat"
+        disallowEmptySelection
+        selectionMode="single"
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
+      >
+        <DropdownItem key="text">Text</DropdownItem>
+        <DropdownItem key="number">Number</DropdownItem>
+        <DropdownItem key="date">Date</DropdownItem>
+        <DropdownItem key="single_date">Single Date</DropdownItem>
+        <DropdownItem key="iteration">Iteration</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+}
+
 export default function PizzaItem() {
   return (
     // <Card className="max-w-screen  p-10 rounded-[35px]">
@@ -132,20 +173,25 @@ export default function PizzaItem() {
     //       </CardFooter>
     //     </Card>
 
-    <Card className=" flex flex-col h-96 bg-[orange] items-center shadow-none" >
-      <Card className="w-[200px] justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-none">
+    <Card className=" flex flex-col gap-4 pb-4 bg-[orange] items-center shadow-none" >
+      <Card className="w-[250px] justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-none">
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>
             <h1 className="scroll-m-20 text-black text-2xl font-extrabold tracking-tight lg:text-3xl">
               Pizza
             </h1>
-            <h2 className="scroll-m-20 pb-2 text-black text-xl font-medium tracking-tight first:mt-0">
-              $40
-            </h2>
+          </div>
+          <div className="flex flex-col w-full gap-4">
+
+            <DemoDropDown />
+            <DemoDropDown />
           </div>
         </div>
       </Card>
+      <h2 className="scroll-m-20 pb-2 text-black text-xl font-medium tracking-tight first:mt-0">
+        $40
+      </h2>
     </Card>
   );
 }
