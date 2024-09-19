@@ -103,7 +103,7 @@ function DemoPopOver() {
 }
 
 function DemoDropDown() {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Medium"]));
 
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
@@ -118,6 +118,7 @@ function DemoDropDown() {
           className="capitalize bg-background text-forground"
           radius="sm"
           color="warning"
+          size="sm"
         >
           {selectedValue} 
           <ArrowDropDownCircleSharpIcon />
@@ -131,11 +132,9 @@ function DemoDropDown() {
         selectedKeys={selectedKeys}
         onSelectionChange={setSelectedKeys}
       >
-        <DropdownItem key="text">Text</DropdownItem>
-        <DropdownItem key="number">Number</DropdownItem>
-        <DropdownItem key="date">Date</DropdownItem>
-        <DropdownItem key="single_date">Single Date</DropdownItem>
-        <DropdownItem key="iteration">Iteration</DropdownItem>
+        <DropdownItem key="small">Small</DropdownItem>
+        <DropdownItem key="medium">Medium</DropdownItem>
+        <DropdownItem key="large">Large</DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
@@ -173,8 +172,8 @@ export default function PizzaItem() {
     //       </CardFooter>
     //     </Card>
 
-    <Card className=" flex flex-col gap-4 pb-4 bg-[orange] items-center shadow-none" >
-      <Card className="w-[250px] justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-none">
+    <Card className=" flex flex-col bg-foreground gap-4 pb-4 rounded-b-[10px] items-center shadow-sm" >
+      <Card className="w-[250px] justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-sm">
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>
@@ -182,15 +181,16 @@ export default function PizzaItem() {
               Pizza
             </h1>
           </div>
-          <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col w-full gap-4 px-5">
 
             <DemoDropDown />
-            <DemoDropDown />
+            <Button color="danger" radius="full" size="lg"><AddIcon/></Button>
           </div>
         </div>
       </Card>
-      <h2 className="scroll-m-20 pb-2 text-black text-xl font-medium tracking-tight first:mt-0">
-        $40
+      
+      <h2 className="scroll-m-20 pb-2 text-background text-xl font-bold tracking-tight first:mt-0">
+        ₹250
       </h2>
     </Card>
   );

@@ -35,7 +35,7 @@ const PizzaCustomization = () => {
   };
 
   return (
-    <div className='flex flex-col p-20 gap-4 h-dvh'>
+    <div className='flex flex-col p-20 gap-6'>
       <h1 className='scroll-m-20 mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl'>Customize Your Pizza</h1>
 
       {/* Choose Pizza Base */}
@@ -75,7 +75,7 @@ const PizzaCustomization = () => {
       </CheckboxGroup>
       
 
-      <Button className='max-w-fit' size='lg' onClick={handleSubmit}>Submit Pizza Order</Button>
+      <Button className='max-w-fit' color="success" size='lg' onClick={handleSubmit}>Add to cart</Button>
       <h1></h1>
     </div>
   );

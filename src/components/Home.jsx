@@ -59,8 +59,9 @@ export default function Home() {
           <PizzaItem key={index} />
         ))}
       </div>
-      
-      <footer className="home-footer w-full text-center">
+
+      <Divider />
+      <footer className="home-footer w-full h- text-center">
         <p>&copy; 2024 Pizza Delivery. All rights reserved.</p>
         <nav className="flex gap-4 justify-center">
           <Link>Terms and Conditions</Link>

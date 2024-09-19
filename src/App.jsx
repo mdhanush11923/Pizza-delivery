@@ -7,6 +7,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import Entry from "./components/Entry";
 import Menu from "./components/Menu";
 import Layout from "./components/Layout";
+import Orders from "./components/Orders";
 
 export default function App() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export default function App() {
           <Route index element={<Content />} />
           <Route path="/pizza-delivery/menu" element={<Menu />} />
           <Route path="/pizza-delivery/custom" element={<PizzaCustomization />} />
-          <Route path="/pizza-delivery/orders" element={<h1>orders</h1>} />
+          <Route path="/pizza-delivery/orders" element={<Orders />} />
         </Route>
         <Route path="/pizza-delivery/entry" element={<Entry />} />
       </Routes>
