@@ -34,7 +34,7 @@ export default function Topbar(props) {
   };
 
   return (
-    <Navbar isBordered is>
+    <Navbar maxWidth  isBordered is>
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
