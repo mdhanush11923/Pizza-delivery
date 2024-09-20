@@ -141,43 +141,23 @@ function DemoDropDown() {
 }
 
 export default function PizzaItem() {
-  const itemColor = "#fdd792";
-
+  const itemColor = "#81DAE3";
+  "#AD49E1"
+  "#CEDF9F"
+  "#CCE0AC"
+  "#D5ED9F"
+  "#F0EAAC"
+  "#C0C78C"
+  "#A1D6B2"
+  "#fadfa1";
+  "#F4DEB3"
   "#fdd792";
+  "#81DAE3"
+  "#98DED9"
 
   return (
-    // <Card className="max-w-screen  p-10 rounded-[35px]">
-      
-    // </Card>
-    // <Card className="flex gap-4 flex-row p-0 rounded-[35px] bg-[#fdd792]">
- 
-    //   <CardFooter className="flex-col text-small justify-between">
-    //     <b>Title</b>
-    //     <p className="text-default-500">$20</p>
-    //   </CardFooter>
-    // </Card>
-
-    // <Card className="flex flex-col" shadow="sm" isPressable onPress={() => console.log("item pressed")}>
-    //       <CardBody className="overflow-visible p-0">
-    //     <div className="flex gap-4 flex-row items-center p-5">
-    //          <Image className="w-full object-cover h-[140px]" width="100%" radius="full" src={PizzaImg} />
-    //          <div>
-    //            <h1 className="scroll-m-20 mb-4 text-black text-2xl font-extrabold tracking-tight lg:text-3xl">
-    //     //         Pizza
-    //     //       </h1>
-    //     //       <h2 className="scroll-m-20 pb-2 text-black text-2xl font-medium tracking-tight first:mt-0">
-    //     //         $40
-    //            </h2>
-    //          </div>
-    //     </div>
-    //       </CardBody>
-    //       <CardFooter className="text-small justify-center">
-    //          <AddCircleIcon />
-    //       </CardFooter>
-    //     </Card>
-
     <Card className=" flex flex-col bg-foreground gap-4 pb-4 rounded-b-[10px] items-center shadow-sm" >
-      <Card className={`w-[250px] justify-center text-center rounded-b-[30px] bg-[${itemColor}] p-5 shadow-sm`}>
+      <Card className={`w-[250px] justify-center text-center rounded-b-[30px] bg-[#CCE0AC] p-5 shadow-sm`}>
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>
