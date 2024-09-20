@@ -61,7 +61,7 @@ export default function Topbar(props) {
           <Link color="primary" variant="light" href="/pizza-delivery/entry">Login</Link>
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button as={Link} href="/pizza-delivery/entry" color="warning" variant="flat">
+          <Button as={Link} href="/pizza-delivery/entry" color="primary" variant="ghost">
             Sign up
           </Button>
         </NavbarItem>

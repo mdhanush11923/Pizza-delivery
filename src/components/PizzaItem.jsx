@@ -141,6 +141,10 @@ function DemoDropDown() {
 }
 
 export default function PizzaItem() {
+  const itemColor = "#fdd792";
+
+  "#fdd792";
+
   return (
     // <Card className="max-w-screen  p-10 rounded-[35px]">
       
@@ -173,7 +177,7 @@ export default function PizzaItem() {
     //     </Card>
 
     <Card className=" flex flex-col bg-foreground gap-4 pb-4 rounded-b-[10px] items-center shadow-sm" >
-      <Card className="w-[250px] justify-center text-center rounded-b-[30px] bg-[#fdd792] p-5 shadow-sm">
+      <Card className={`w-[250px] justify-center text-center rounded-b-[30px] bg-[${itemColor}] p-5 shadow-sm`}>
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>
