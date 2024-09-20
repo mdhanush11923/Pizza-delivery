@@ -8,10 +8,11 @@ import Entry from "./components/Entry";
 import Menu from "./components/Menu";
 import Layout from "./components/Layout";
 import Orders from "./components/Orders";
+import Home from "./components/Home";
 
 export default function App() {
   const navigate = useNavigate();
-  const [darkMode, setMode] = React.useState(true);
+  const [darkMode, setMode] = React.useState(false);
 
   function changeMode() {
     setMode(!darkMode);
@@ -22,7 +23,7 @@ export default function App() {
       <main className={`${darkMode && 'dark'} text-foreground bg-background`}>
         <Routes>
           <Route path="/pizza-delivery/" element={<Layout darkMode={darkMode} changeMode={changeMode} />}>
-            <Route index element={<Content />} />
+            <Route index element={<Home />} />
             <Route path="/pizza-delivery/menu" element={<Menu />} />
             <Route path="/pizza-delivery/custom" element={<PizzaCustomization />} />
             <Route path="/pizza-delivery/orders" element={<Orders />} />
