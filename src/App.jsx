@@ -19,15 +19,15 @@ export default function App() {
   return (
     <NextUIProvider navigate={navigate} useHref={useHref}>
       {/* Your app here... */}
-      <Routes>
-        <Route path="/pizza-delivery/" element={<Layout darkMode={darkMode} changeMode={changeMode} />}>
-          <Route index element={<Content />} />
-          <Route path="/pizza-delivery/menu" element={<Menu />} />
-          <Route path="/pizza-delivery/custom" element={<PizzaCustomization />} />
-          <Route path="/pizza-delivery/orders" element={<Orders />} />
-        </Route>
-        <Route path="/pizza-delivery/entry" element={<Entry />} />
-      </Routes>
+        <Routes>
+          <Route path="/pizza-delivery/" element={<Layout darkMode={darkMode} changeMode={changeMode} />}>
+            <Route index element={<Content />} />
+            <Route path="/pizza-delivery/menu" element={<Menu />} />
+            <Route path="/pizza-delivery/custom" element={<PizzaCustomization />} />
+            <Route path="/pizza-delivery/orders" element={<Orders />} />
+          </Route>
+          <Route path="/pizza-delivery/entry" element={<Entry />} />
+        </Routes>
     </NextUIProvider>
 
 

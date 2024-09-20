@@ -30,7 +30,7 @@ export default function Menu() {
       </h1>
       <div className="flex flex-wrap justify-center gap-16">
         {colors.map((color, index) => (
-          <PizzaItem key={index} color="#fadfa1" />
+          <PizzaItem key={index} color="bg-peachblossom" />
         ))}
       </div>
     </div>

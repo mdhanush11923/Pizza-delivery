@@ -144,7 +144,7 @@ export default function PizzaItem(props) {
 
   return (
     <Card className=" flex flex-col bg-foreground gap-4 pb-4 rounded-b-[10px] items-center shadow-sm" >
-      <Card className={`w-[250px] justify-center text-center rounded-b-[30px] bg-[${props.color}] p-5 shadow-sm`}>
+      <Card style={{ backgroundColor: props.color }} className={`w-[250px] justify-center text-center rounded-b-[30px] ${props.color} p-5 shadow-sm`}>
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>

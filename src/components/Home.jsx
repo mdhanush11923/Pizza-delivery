@@ -55,7 +55,7 @@ export default function Home() {
       </h1>
       <div className="flex flex-wrap gap-20 justify-center">
         {Array(3).fill(null).map((_, index) => (
-          <PizzaItem key={index} color={index === (1) ? "#FFFF80" : "#B4E380"} />
+          <PizzaItem key={index} color={index === (1) ? "bg-lemonburst" : "bg-limefrost"} />
         ))}
       </div>
 
