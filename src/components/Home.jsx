@@ -16,9 +16,8 @@ export default function Home() {
             <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-3xl lg:text-5xl">
               Delicious Pizza Delivered Right to Your Doorstep
             </h1>
-            <h2 className="scroll-m-20 pb-2 text-2xl font-semibold tracking-tight first:mt-0">
-              Craving pizza? We’ve got you covered! Hot, fresh, and delivered
-              fast!
+            <h2 className="scroll-m-20 pb-2 text-2xl font-semibold tracking-tight mt-6">
+              Craving pizza? We’ve got you covered!🔥Hot, 🍃fresh and⏩delivered fast!
             </h2>
             <div className="flex gap-4 mt-14 w-40">
               <Button
@@ -51,12 +50,12 @@ export default function Home() {
         </div>
         <Divider className="my-8" />
       </div>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-center lg:text-4xl">
         Featured Pizzas
       </h1>
       <div className="flex flex-wrap gap-20 justify-center">
         {Array(3).fill(null).map((_, index) => (
-          <PizzaItem key={index} color={index === (1) ? "#FFFF80":"#B4E380"} />
+          <PizzaItem key={index} color={index === (1) ? "#FFFF80" : "#B4E380"} />
         ))}
       </div>
 

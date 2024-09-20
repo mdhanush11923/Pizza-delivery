@@ -7,7 +7,6 @@ export const ThemeSwitcher = (props) => {
 
   return (
     <Switch
-      defaultSelected
       size="md"
       color="success"
       onChange={() => props.onSwitch(props.condition)}

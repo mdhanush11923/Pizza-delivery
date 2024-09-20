@@ -67,7 +67,7 @@ const PizzaCustomization = () => {
       <div className='flex flex-col items-center gap-8'>
         <div className='flex items-center gap-20'>
           <h1 className='scroll-m-20 mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl'>Create Your Own Pizza</h1>
-          <Image width={250} isBlurred src={customPizzaImg} />
+          <Image width={230} isBlurred src={customPizzaImg} />
         </div>
 
         <Select variant='faded' label="Choose Pizza Base" selectedKeys={base} onSelectionChange={setBase}>
