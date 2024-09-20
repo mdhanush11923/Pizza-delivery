@@ -24,7 +24,7 @@ export default function Home() {
               <Button
                 fullWidth
                 color="primary"
-                radius="md"
+                radius="sm"
                 size="lg"
                 href="/pizza-delivery/menu"
                 as={Link}
@@ -35,7 +35,7 @@ export default function Home() {
               <Button
                 fullWidth
                 color="primary"
-                radius="md"
+                radius="sm"
                 size="lg"
                 href="/pizza-delivery/menu"
                 as={Link}
@@ -54,9 +54,9 @@ export default function Home() {
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl">
         Featured Pizzas
       </h1>
-      <div className="flex flex-wrap justify gap-6 justify-evenly">
-        {Array(5).fill(null).map((_, index) => (
-          <PizzaItem key={index} />
+      <div className="flex flex-wrap gap-20 justify-center">
+        {Array(3).fill(null).map((_, index) => (
+          <PizzaItem key={index} color={index === (1) ? "#FFFF80":"#B4E380"} />
         ))}
       </div>
 

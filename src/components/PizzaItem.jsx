@@ -140,24 +140,11 @@ function DemoDropDown() {
   );
 }
 
-export default function PizzaItem() {
-  const itemColor = "#81DAE3";
-  "#AD49E1"
-  "#CEDF9F"
-  "#CCE0AC"
-  "#D5ED9F"
-  "#F0EAAC"
-  "#C0C78C"
-  "#A1D6B2"
-  "#fadfa1";
-  "#F4DEB3"
-  "#fdd792";
-  "#81DAE3"
-  "#98DED9"
+export default function PizzaItem(props) {
 
   return (
     <Card className=" flex flex-col bg-foreground gap-4 pb-4 rounded-b-[10px] items-center shadow-sm" >
-      <Card className={`w-[250px] justify-center text-center rounded-b-[30px] bg-[#CCE0AC] p-5 shadow-sm`}>
+      <Card className={`w-[250px] justify-center text-center rounded-b-[30px] bg-[${props.color}] p-5 shadow-sm`}>
         <div className="flex gap-4 flex-col items-center p-5">
           <Image className="w-full object-cover" width="100%" radius="full" src={PizzaImg} />
           <div>
