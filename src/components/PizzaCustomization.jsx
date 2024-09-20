@@ -38,9 +38,9 @@ const PizzaCustomization = () => {
 
   return (
     <div className='flex flex-col items-center p-20 pt-0'>
-      <div className='flex flex-col gap-6'>
+      <div className='flex flex-col items-center gap-6'>
         <div className='flex items-center gap-8'>
-          <h1 className='scroll-m-20 mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl'>Customize Your Pizza</h1>
+          <h1 className='scroll-m-20 mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl'>Create Your Own Pizza</h1>
           <Image width={250} isBlurred src={customPizzaImg} />
         </div>
         {/* Choose Pizza Base */}

@@ -34,7 +34,7 @@ export default function Topbar(props) {
   };
 
   return (
-    <Navbar>
+    <Navbar isBordered is>
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -70,7 +70,7 @@ export default function Topbar(props) {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="bg-inherit" isOpen={isMenuOpen}>
-        <div className={`bg-${props.condition? "blck":"white"} h-full`}>
+        <div className={`bg-${props.condition? "black":"white"} h-full`}>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.title}-${index}`}>
               <Button
@@ -79,7 +79,7 @@ export default function Topbar(props) {
                 onClick={() => handleMenuItemClick(item.path)}
                 size="lg"
                 variant="light"
-                radius="sm"
+                radius="none"
               >
                 <p> {item.title} </p>
               </Button>
