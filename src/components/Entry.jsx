@@ -56,7 +56,7 @@ export default function Entry(props) {
           </div>
         </CardHeader>
         <CardBody className="">
-          <Tabs defaultSelectedKey={props.defaultTab} classNames={{tab: "h-12"}} className="my-4" fullWidth size="lg" radius="lg">
+          <Tabs variant="light" defaultSelectedKey={props.defaultTab} classNames={{tab: "h-12"}} className="my-4" fullWidth size="lg" radius="lg">
             <Tab key="login" title="Login">
               <div className="flex-col space-y-5 justify-center">
                 <Input
@@ -162,7 +162,7 @@ export default function Entry(props) {
       <Card isBlurred className="hidden bg-[#ea580c]] sm:flex">
         <CardBody>
           <Image
-            width={714}
+            width={720}
             src={windowImg}
             alt="NextUI Album Cover"
           />

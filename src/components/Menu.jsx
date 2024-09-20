@@ -28,15 +28,17 @@ export default function Menu() {
     "#fadfa1", // Light Apricot
   ];
 
+  const [selectedKey, setSelectedKey] = React.useState("All items");
+
   return (
     <div className="flex flex-col items-center p-10 gap-6">
-      <Tabs size="lg" aria-label="Tabs sizes">
-        <Tab key="photos" title="All items" />
-        <Tab key="music" title="Vegetarian" />
-        <Tab key="videos" title="Non Vegetarian" />
+      <Tabs variant="light" color="success" defaultSelectedKey="All items" selectedKey={selectedKey} onSelectionChange={setSelectedKey} classNames={{tab: "h-14 font-semibold"}} size="lg" aria-label="Tabs sizes">
+        <Tab key="All items" title="All items" />
+        <Tab key="Vegetarian" title="Vegetarian" />
+        <Tab key="Non Vegetarian" title="Non Vegetarian" />
       </Tabs>
       <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
-        All items
+        {selectedKey}
       </h1>
       <div className="flex flex-wrap justify-center gap-16">
         {colors.map((color, index) => (

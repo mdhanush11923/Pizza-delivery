@@ -18,7 +18,7 @@ export default function Home() {
               Delicious Pizza Delivered Right to Your Doorstep
             </h1>
             <h2 className="scroll-m-20 pb-2 text-2xl font-semibold tracking-tight mt-6">
-              Craving pizza? We’ve got you covered!🔥Hot, 🍃fresh and⏩delivered
+              Craving pizza? We’ve got you covered!🔥Hot, 🍃fresh and ⏩delivered
               fast!
             </h2>
             <div className="flex gap-4 mt-14 w-40">

@@ -58,24 +58,51 @@ export default function Topbar(props) {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">
-          <Link isBlock color="primary" variant="light" href="/pizza-delivery/login">Login</Link>
+          <Link
+            isBlock
+            color="primary"
+            variant="light"
+            href="/pizza-delivery/login"
+          >
+            Login
+          </Link>
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button as={Link} href="/pizza-delivery/signup" color="primary" variant="ghost" radius="sm">
+          <Button
+            as={Link}
+            href="/pizza-delivery/signup"
+            color="primary"
+            variant="ghost"
+            radius="sm"
+          >
             Sign up
           </Button>
         </NavbarItem>
         <NavbarItem>
-          <ThemeSwitcher onSwitch={props.onSwitch} condition={props.condition} />
+          <ThemeSwitcher
+            onSwitch={props.onSwitch}
+            condition={props.condition}
+          />
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu className="bg-inherit" isOpen={isMenuOpen}>
-        <div className={`bg-${props.condition? "black":"white"} h-full`}>
+      <NavbarMenu
+        motionProps={{
+          initial: { backgroundColor: "#FFFFFF" }, // Initial color (before menu opens)
+          animate: { backgroundColor: props.condition? "black" : "white"  }, // Color after menu opens
+          exit: { backgroundColor: "#FFFFFF" }, // Color when menu closes
+          transition: { duration: 0.5 }, // Optional: transition duration
+        }}
+        className="bg-inherit"
+        isOpen={isMenuOpen}
+      >
+        <div>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.title}-${index}`}>
               <Button
                 color={index === 4 ? "danger" : "default"}
-                className={`text-${props.condition ? "white" : "black"} ${index===4 && "text-danger"} w-full `}
+                className={`text-${props.condition ? "white" : "black"} ${
+                  index === 4 && "text-danger"
+                } w-full `}
                 onClick={() => handleMenuItemClick(item.path)}
                 size="lg"
                 variant="light"

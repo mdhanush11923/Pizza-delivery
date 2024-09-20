@@ -11,7 +11,7 @@ import Orders from "./components/Orders";
 
 export default function App() {
   const navigate = useNavigate();
-  const [darkMode, setMode] = React.useState(false);
+  const [darkMode, setMode] = React.useState(true);
 
   function changeMode() {
     setMode(!darkMode);
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <NextUIProvider navigate={navigate} useHref={useHref}>
-      {/* Your app here... */}
+      <main className={`${darkMode && 'dark'} text-foreground bg-background`}>
         <Routes>
           <Route path="/pizza-delivery/" element={<Layout darkMode={darkMode} changeMode={changeMode} />}>
             <Route index element={<Content />} />
@@ -31,6 +31,7 @@ export default function App() {
           <Route path="/pizza-delivery/signup" element={<Entry darkMode={darkMode} defaultTab="signup" />} />
 
         </Routes>
+      </main>
     </NextUIProvider>
 
 

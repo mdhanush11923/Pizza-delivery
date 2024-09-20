@@ -88,7 +88,7 @@ const PizzaCustomization = () => {
           ))}
         </Select>
 
-        <CheckboxGroup color='warning' label="Choose Veggies" orientation="horizontal">
+        <CheckboxGroup classNames={{label: "text-center"}} color='warning' label="Choose Veggies" orientation="horizontal">
           {veggiesOptions.map((item) => (
             <Checkbox key={item.key} value={item.key} onChange={handleVeggiesChange}>
               {item.label}

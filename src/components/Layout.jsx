@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom';
 import Topbar from './Topbar'; // Adjust the import paths as needed
 
 const Layout = ({ darkMode, changeMode }) => (
-  <main className={`${darkMode && 'dark'} text-foreground bg-background`}>
+  <div>
     <Topbar condition={darkMode} onSwitch={changeMode} />
-    <Outlet /> {/* This will render the nested routes */}
-  </main>
+    <Outlet />
+  </div>
 );
 
 export default Layout;
