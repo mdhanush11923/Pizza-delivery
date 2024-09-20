@@ -96,7 +96,7 @@ const PizzaCustomization = () => {
           ))}
         </CheckboxGroup>
 
-        <Button className='w-44' color="danger" size='lg' radius='sm' onClick={handleSubmit}>
+        <Button className='w-44 h-14' color="danger" size='lg' radius='sm' onClick={handleSubmit}>
           Add to cart
         </Button>
       </div>

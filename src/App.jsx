@@ -16,6 +16,7 @@ export default function App() {
   function changeMode() {
     setMode(!darkMode);
   }
+
   return (
     <NextUIProvider navigate={navigate} useHref={useHref}>
       {/* Your app here... */}
@@ -26,7 +27,9 @@ export default function App() {
             <Route path="/pizza-delivery/custom" element={<PizzaCustomization />} />
             <Route path="/pizza-delivery/orders" element={<Orders />} />
           </Route>
-          <Route path="/pizza-delivery/entry" element={<Entry />} />
+          <Route path="/pizza-delivery/login" element={<Entry darkMode={darkMode} defaultTab="login"/>} />
+          <Route path="/pizza-delivery/signup" element={<Entry darkMode={darkMode} defaultTab="signup" />} />
+
         </Routes>
     </NextUIProvider>
 
