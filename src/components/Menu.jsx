@@ -46,7 +46,7 @@ export default function Menu() {
           onSelectionChange={setSelectedKey}
           classNames={{
             tab: "h-12 font-semibold",
-            tabContent: "group-data-[selected=true]:text-background",
+            tabContent: "w-full group-data-[selected=true]:text-background",
           }}
           radius="sm"
           aria-label="Tabs sizes"
@@ -59,7 +59,7 @@ export default function Menu() {
             </div>
           </Tab>
           <Tab key="Vegetarian" title="Vegetarian">
-            <div className="flex flex-wrap justify-center gap-16">
+            <div className="flex flex-wrap  w-full justify-center gap-16">
               {vegetarianPizzas.map((pizza) => (
                 <PizzaItem key={pizza.id} id={pizza.id} color="bg-veggreen" />
               ))}
@@ -68,7 +68,7 @@ export default function Menu() {
           <Tab key="Non Vegetarian" title="Non Vegetarian">
             <div className="flex flex-wrap justify-center gap-16">
               {nonVegetarianPizzas.map((pizza) => (
-                <PizzaItem key={pizza.id} id={pizza.id} color="bg-[#FFDB5C]" />
+                <PizzaItem key={pizza.id} id={pizza.id} color="bg-[#A1D6B2]" />
               ))}
             </div>
           </Tab>

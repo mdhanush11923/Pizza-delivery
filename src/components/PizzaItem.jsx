@@ -20,9 +20,9 @@ import {
 } from "@nextui-org/react";
 import pizzas from "./pizzaData";
 
-export default function PizzaItem(props) {
+export default function PizzaItem({id , color}) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
-  const pizza = pizzas[props.id];
+  const pizza = pizzas[id];
 
   function DemoDropDown() {
     return (
@@ -64,8 +64,8 @@ export default function PizzaItem(props) {
     >
       <Card
         isPressable
-        style={{ backgroundColor: props.color }}
-        className={`w-[250px] justify-center text-center rounded-b-[30px] ${props.color} p-5 shadow-sm`}
+        style={{ backgroundColor: color }}
+        className={`w-[275px] justify-center text-center rounded-b-[30px] ${color} p-5 shadow-sm`}
       >
         <div className="flex gap-4 flex-col items-center p-5">
           <Image
@@ -75,7 +75,7 @@ export default function PizzaItem(props) {
             src={PizzaImg}
           />
           <div>
-            <h1 className="scroll-m-20 text-black text-2xl font-extrabold tracking-tight lg:text-3xl">
+            <h1 className="scroll-m-20 text-black text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
           </div>

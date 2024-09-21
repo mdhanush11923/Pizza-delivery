@@ -192,6 +192,29 @@ const pizzas = [
     ],
     category: "Non-Vegetarian",
   },
+  {
+    id: 8, 
+    name: "Pesto Veggie",
+    description:
+      "A vibrant mix of fresh pesto, mozzarella, and seasonal vegetables.",
+    prices: {
+      small: 299,
+      medium: 399,
+      large: 499,
+    },
+    pizzaBases: [
+      { key: "Thin Crust", label: "Thin Crust" },
+      { key: "Cheese Burst", label: "Cheese Burst" },
+    ],
+    sauces: [{ key: "Pesto", label: "Pesto" }],
+    cheeses: [{ key: "Mozzarella", label: "Mozzarella" }],
+    veggiesOptions: [
+      { key: "Cherry Tomatoes", label: "Cherry Tomatoes" },
+      { key: "Zucchini", label: "Zucchini" },
+      { key: "Spinach", label: "Spinach" },
+    ],
+    category: "Vegetarian",
+  },
 ];
 
 
