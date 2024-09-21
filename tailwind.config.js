@@ -16,6 +16,7 @@ export default {
       'midnight': '#121063',
       'metal': '#565584',
       'limefrost': '#B4E380',
+      'veggreen': '#C3FF93',
       'lemonburst': '#FFFF80',
       'peachblossom': '#fadfa1'
     },

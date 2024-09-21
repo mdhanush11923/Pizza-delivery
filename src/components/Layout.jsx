@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Topbar from './Topbar'; // Adjust the import paths as needed
 
 const Layout = ({ darkMode, changeMode }) => (
-  <div>
+  <div className='h-full'>
     <Topbar condition={darkMode} onSwitch={changeMode} />
     <Outlet />
   </div>

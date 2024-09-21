@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <NextUIProvider navigate={navigate} useHref={useHref}>
-      <main className={`${darkMode && "dark"} text-foreground bg-background`}>
+      <main className={`${darkMode && "dark"} text-foreground bg-background h-full`}>
         <Routes>
           <Route
             path="/pizza-delivery/"

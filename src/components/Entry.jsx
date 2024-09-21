@@ -11,7 +11,7 @@ import BrandIcon from "./BrandIcon";
 
 export default function Entry(props) {
   
-  const buttonClass = "bg-[#EF5814] text-[white] h-14";
+  const buttonClass = "bg-[#EF5814] hover:bg-[#98390d] text-[white] h-14";
   const [details, setDetails] = React.useState({
     email: "",
     p1: "",
@@ -82,7 +82,7 @@ export default function Entry(props) {
                 <Button
                   as={Link}
                   fullWidth
-                  radius="md"
+                  radius="sm"
                   className={buttonClass}
                   variant="solid"
                   size="lg"

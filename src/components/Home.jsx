@@ -34,13 +34,12 @@ export default function Home() {
                 Login
               </Button>
               <Button
-                className="h-14 w-32"
+                className="h-14 w-32 hover:bg-[#0000a1]"
                 color="primary"
                 radius="sm"
                 size="lg"
                 href="/pizza-delivery/signup"
                 as={Link}
-                variant="solid"
               >
                 Sign up
               </Button>
@@ -62,12 +61,13 @@ export default function Home() {
             <PizzaItem
               key={index}
               color={index === 1 ? "bg-lemonburst" : "bg-limefrost"}
+              id={index}
             />
           ))}
       </div>
 
       <Divider />
-      <footer className="home-footer w-full h- text-center">
+      <footer className="flex flex-col home-footer w-full h-72 justify-center text-center items-center">
         <p>&copy; 2024 Pizza Delivery. All rights reserved.</p>
         <nav className="flex gap-4 justify-center">
           <Link>Terms and Conditions</Link>

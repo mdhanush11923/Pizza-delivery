@@ -11,10 +11,13 @@ import {
   Button,
   Tab,
   Tabs,
+  Badge,
 } from "@nextui-org/react";
 import BrandIcon from "./BrandIcon";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useLocation } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -34,7 +37,7 @@ export default function Topbar(props) {
   };
 
   return (
-    <Navbar maxWidth  isBordered is>
+    <Navbar maxWidth isBordered is>
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -57,27 +60,43 @@ export default function Topbar(props) {
         </Tabs>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden md:flex">
-          <Link
-            isBlock
-            color="primary"
-            variant="light"
-            href="/pizza-delivery/login"
-          >
-            Login
-          </Link>
+        <NavbarItem>
+          <IconButton aria-label="cart">
+            <Badge
+              size="lg"
+              content={true && ""}
+              variant="shadow"
+              color="success"
+            >
+              <ShoppingCartIcon color="success" />
+            </Badge>
+          </IconButton>
         </NavbarItem>
-        <NavbarItem className="hidden md:flex">
-          <Button
-            as={Link}
-            href="/pizza-delivery/signup"
-            color="primary"
-            variant="ghost"
-            radius="sm"
-          >
-            Sign up
-          </Button>
-        </NavbarItem>
+        {false && (
+          <NavbarItem className="hidden md:flex">
+            <Link
+              isBlock
+              color="primary"
+              variant="light"
+              href="/pizza-delivery/login"
+            >
+              Login
+            </Link>
+          </NavbarItem>
+        )}
+        {false && (
+          <NavbarItem className="hidden md:flex">
+            <Button
+              as={Link}
+              href="/pizza-delivery/signup"
+              color="primary"
+              variant="ghost"
+              radius="sm"
+            >
+              Sign up
+            </Button>
+          </NavbarItem>
+        )}
         <NavbarItem>
           <ThemeSwitcher
             onSwitch={props.onSwitch}
@@ -88,7 +107,7 @@ export default function Topbar(props) {
       <NavbarMenu
         motionProps={{
           initial: { backgroundColor: "#FFFFFF" }, // Initial color (before menu opens)
-          animate: { backgroundColor: props.condition? "black" : "white"  }, // Color after menu opens
+          animate: { backgroundColor: props.condition ? "black" : "white" }, // Color after menu opens
           exit: { backgroundColor: "#FFFFFF" }, // Color when menu closes
           transition: { duration: 0.5 }, // Optional: transition duration
         }}

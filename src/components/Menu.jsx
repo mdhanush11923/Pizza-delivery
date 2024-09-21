@@ -7,9 +7,11 @@ import {
   Tab,
   Tabs,
 } from "@nextui-org/react";
-import PizzaImg from "../Images/pizza.jpg";
 import { Button } from "@nextui-org/react";
 import PizzaItem from "./PizzaItem";
+import pizzas from "./pizzaData";
+import { vegetarianPizzas, nonVegetarianPizzas } from "./pizzaData";
+
 export default function Menu() {
   const colors = [
     "#98DED9", // Blue-Green
@@ -31,7 +33,7 @@ export default function Menu() {
   const [selectedKey, setSelectedKey] = React.useState("All items");
 
   return (
-    <div className="flex flex-col items-center p-5 md:p-10 gap-6">
+    <div className="flex flex-col h-full items-center p-5 md:p-10 gap-6">
       <div className="flex flex-wrap gap-4 lg:px-32 w-full justify-between">
         <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
           {selectedKey}
@@ -49,16 +51,28 @@ export default function Menu() {
           radius="sm"
           aria-label="Tabs sizes"
         >
-          <Tab key="All items" title="All items" />
-          <Tab key="Vegetarian" title="Vegetarian" />
-          <Tab key="Non Vegetarian" title="Non Vegetarian" />
+          <Tab key="All items" title="All items">
+            <div className="flex flex-wrap justify-center gap-16">
+              {pizzas.map((pizza, index) => (
+                <PizzaItem key={index} id={index} color="bg-peachblossom" />
+              ))}
+            </div>
+          </Tab>
+          <Tab key="Vegetarian" title="Vegetarian">
+            <div className="flex flex-wrap justify-center gap-16">
+              {vegetarianPizzas.map((pizza) => (
+                <PizzaItem key={pizza.id} id={pizza.id} color="bg-veggreen" />
+              ))}
+            </div>
+          </Tab>
+          <Tab key="Non Vegetarian" title="Non Vegetarian">
+            <div className="flex flex-wrap justify-center gap-16">
+              {nonVegetarianPizzas.map((pizza) => (
+                <PizzaItem key={pizza.id} id={pizza.id} color="bg-[#FFDB5C]" />
+              ))}
+            </div>
+          </Tab>
         </Tabs>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-16">
-        {colors.map((color, index) => (
-          <PizzaItem key={index} color="bg-peachblossom" />
-        ))}
       </div>
     </div>
   );
