@@ -36,13 +36,25 @@ export default function Menu() {
         <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
           {selectedKey}
         </h1>
-        <Tabs variant="light" color="success" defaultSelectedKey="All items" selectedKey={selectedKey} onSelectionChange={setSelectedKey} classNames={{ tab: "h-14 font-semibold" }} size="lg" aria-label="Tabs sizes">
+        <Tabs
+          variant="light"
+          color="success"
+          defaultSelectedKey="All items"
+          selectedKey={selectedKey}
+          onSelectionChange={setSelectedKey}
+          classNames={{
+            tab: "h-14 font-semibold",
+            tabContent: "group-data-[selected=true]:text-background",
+          }}
+          size="lg"
+          aria-label="Tabs sizes"
+        >
           <Tab key="All items" title="All items" />
           <Tab key="Vegetarian" title="Vegetarian" />
           <Tab key="Non Vegetarian" title="Non Vegetarian" />
         </Tabs>
-     </div>
-      
+      </div>
+
       <div className="flex flex-wrap justify-center gap-16">
         {colors.map((color, index) => (
           <PizzaItem key={index} color="bg-peachblossom" />
