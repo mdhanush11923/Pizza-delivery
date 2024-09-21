@@ -31,7 +31,7 @@ export default function Menu() {
   const [selectedKey, setSelectedKey] = React.useState("All items");
 
   return (
-    <div className="flex flex-col items-center p-10 py-10 gap-6">
+    <div className="flex flex-col items-center p-5 md:p-10 gap-6">
       <div className="flex flex-wrap gap-4 lg:px-32 w-full justify-between">
         <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
           {selectedKey}
@@ -43,10 +43,10 @@ export default function Menu() {
           selectedKey={selectedKey}
           onSelectionChange={setSelectedKey}
           classNames={{
-            tab: "h-14 font-semibold",
+            tab: "h-12 font-semibold",
             tabContent: "group-data-[selected=true]:text-background",
           }}
-          size="lg"
+          radius="sm"
           aria-label="Tabs sizes"
         >
           <Tab key="All items" title="All items" />

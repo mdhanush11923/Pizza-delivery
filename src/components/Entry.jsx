@@ -47,7 +47,7 @@ export default function Entry(props) {
   }
 
   return (
-    <div className="flex flex-wrap flex-row-reverse items-center justify-around p-10 bg-[orange]">
+    <div className="flex flex-wrap h-screen flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[orange]">
       <Card className="px-6 py-6 w-[440px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
@@ -61,7 +61,6 @@ export default function Entry(props) {
               <div className="flex-col space-y-5 justify-center">
                 <Input
                   name="email"
-                  autoFocus
                   onChange={handleLoginChange}
                   value={loginDetails.email}
                   type="email"

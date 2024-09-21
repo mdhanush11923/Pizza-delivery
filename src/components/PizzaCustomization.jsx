@@ -63,40 +63,72 @@ const PizzaCustomization = () => {
   };
 
   return (
-    <div className='flex flex-col items-center p-20 pt-4'>
-      <div className='flex flex-col items-center gap-8'>
-        <div className='flex items-center gap-20'>
-          <h1 className='scroll-m-20 mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl'>Create Your Own Pizza</h1>
+    <div className="flex flex-col items-center h-screen p-10 sm:p-20 pt-4">
+      <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-wrap justify-center items-center gap-10">
+          <h1 className="scroll-m-20 sm:mb-4 text-4xl font-extrabold tracking-tight lg:text-5xl">
+            Create Your Own Pizza
+          </h1>
           <Image width={230} isBlurred src={customPizzaImg} />
         </div>
 
-        <Select variant='faded' label="Choose Pizza Base" selectedKeys={base} onSelectionChange={setBase}>
+        <Select
+          variant="faded"
+          label="Choose Pizza Base"
+          selectedKeys={base}
+          onSelectionChange={setBase}
+        >
           {pizzaBases.map((item) => (
             <SelectItem key={item.key}>{item.label}</SelectItem>
           ))}
         </Select>
 
-        <Select variant='faded' label="Choose Sauce" selectedKeys={sauce} onSelectionChange={setSauce}>
+        <Select
+          variant="faded"
+          label="Choose Sauce"
+          selectedKeys={sauce}
+          onSelectionChange={setSauce}
+        >
           {sauces.map((item) => (
             <SelectItem key={item.key}>{item.label}</SelectItem>
           ))}
         </Select>
 
-        <Select variant='faded' label="Choose Cheese" selectedKeys={cheese} onSelectionChange={setCheese}>
+        <Select
+          variant="faded"
+          label="Choose Cheese"
+          selectedKeys={cheese}
+          onSelectionChange={setCheese}
+        >
           {cheeses.map((item) => (
             <SelectItem key={item.key}>{item.label}</SelectItem>
           ))}
         </Select>
 
-        <CheckboxGroup classNames={{label: "text-center"}} color='warning' label="Choose Veggies" orientation="horizontal">
+        <CheckboxGroup
+          classNames={{ label: "text-center" }}
+          color="warning"
+          label="Choose Veggies"
+          orientation="horizontal"
+        >
           {veggiesOptions.map((item) => (
-            <Checkbox key={item.key} value={item.key} onChange={handleVeggiesChange}>
+            <Checkbox
+              key={item.key}
+              value={item.key}
+              onChange={handleVeggiesChange}
+            >
               {item.label}
             </Checkbox>
           ))}
         </CheckboxGroup>
 
-        <Button className='w-44 h-14' color="danger" size='lg' radius='sm' onClick={handleSubmit}>
+        <Button
+          className="w-44 h-14 mb-20"
+          color="danger"
+          size="lg"
+          radius="sm"
+          onClick={handleSubmit}
+        >
           Add to cart
         </Button>
       </div>
