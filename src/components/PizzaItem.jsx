@@ -6,6 +6,9 @@ import {
   CardBody,
   CardFooter,
   Image,
+  Tooltip,
+  AccordionItem,
+  Accordion,
 } from "@nextui-org/react";
 import PizzaImg from "../Images/pizza.jpg";
 import { Divider } from "@nextui-org/react";
@@ -60,7 +63,7 @@ export default function PizzaItem({id , color}) {
   return (
     <Card
       isPressable
-      className=" flex flex-col bg-foreground gap-4 pb-4 rounded-b-[10px] items-center shadow-sm"
+      className="w-[275px] flex flex-col bg-foreground pb-4 gap-2 rounded-b-[10px] shadow-sm"
     >
       <Card
         isPressable
@@ -81,14 +84,27 @@ export default function PizzaItem({id , color}) {
           </div>
           <div className="flex flex-col w-full gap-4 px-5">
             <DemoDropDown />
+
             <Button color="danger" radius="full" size="lg">
               <AddIcon />
             </Button>
           </div>
         </div>
       </Card>
-
-      <h2 className="scroll-m-20 pb-2 text-background text-xl font-bold tracking-tight first:mt-0">
+      <Accordion isCompact variant="bordered">
+        <AccordionItem
+          classNames={{
+            title: "font-normal font-semibold text-background",
+            content: "text-background text-left opacity-85",
+          }}
+          key="1"
+          aria-label="Accordion 1"
+          title="Description"
+        >
+          {pizza.description}
+        </AccordionItem>
+      </Accordion>
+      <h2 className="scroll-m-20 pb-2 ml-4 text-background text-xl font-bold tracking-tight first:mt-0">
         ₹ {pizza.prices[selectedSize]}
       </h2>
     </Card>
