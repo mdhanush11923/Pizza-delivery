@@ -8,10 +8,10 @@ import PizzaItem from "./PizzaItem";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-10 p-16">
+    <div className="flex flex-col gap-10 py-10 sm:p-16">
       <div>
         <div
-          className={`items-center justify-center h-2/6 flex max-md:flex-wrap gap-20 lg:px-20`}
+          className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-20 lg:px-20`}
         >
           <div className="max-w-lg gap-4">
             <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-3xl lg:text-5xl">
