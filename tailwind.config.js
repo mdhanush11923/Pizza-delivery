@@ -5,20 +5,26 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      'white': '#ffffff',
-      'purple': '#3f3cbb',
-      'midnight': '#121063',
-      'metal': '#565584',
-      'limefrost': '#B4E380',
-      'veggreen': '#C3FF93',
-      'lemonburst': '#FFFF80',
-      'peachblossom': '#fadfa1'
+      transparent: "transparent",
+      current: "currentColor",
+      white: "#ffffff",
+      purple: "#3f3cbb",
+      midnight: "#121063",
+      metal: "#565584",
+      limefrost: "#B4E380",
+      veggreen: "#C3FF93",
+      lemonburst: "#FFFF80",
+      peachblossom: "#fadfa1",
+    },
+    extend: {
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   darkMode: "class",
@@ -50,8 +56,8 @@ export default {
           },
           // ... rest of the colors
         },
-      }
-    })
+      },
+    }),
   ],
-}
+};
 

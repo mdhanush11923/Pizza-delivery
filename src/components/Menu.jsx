@@ -34,8 +34,8 @@ export default function Menu() {
 
   return (
     <div className="flex flex-col h-full items-center p-5 md:p-10 gap-6">
-      <div className="flex flex-wrap gap-4 lg:px-32 w-full justify-between">
-        <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
+      <div className="flex flex-wrap gap-4 w-full justify-evenly">
+        <h1 className="scroll-m-20 mb-4 font-poppins font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
           {selectedKey}
         </h1>
         <Tabs
@@ -45,7 +45,7 @@ export default function Menu() {
           selectedKey={selectedKey}
           onSelectionChange={setSelectedKey}
           classNames={{
-            tab: "h-12 font-semibold",
+            tab: "h-12 p-3 text-sm font-semibold",
             tabContent: "w-full group-data-[selected=true]:text-background",
           }}
           radius="sm"

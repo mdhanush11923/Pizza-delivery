@@ -14,11 +14,11 @@ export default function Home() {
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-20 lg:px-20`}
         >
           <div className="max-w-lg gap-4">
-            <h1 className="scroll-m-20 mb-4  font-extrabold tracking-tight text-3xl lg:text-5xl">
+            <h1 className="scroll-m-20 mb-4 font-black tracking-tight text-3xl lg:text-5xl">
               Delicious Pizza Delivered Right to Your Doorstep
             </h1>
-            <h2 className="scroll-m-20 pb-2 text-2xl font-semibold tracking-tight mt-6">
-              Craving pizza? We’ve got you covered!🔥Hot, 🍃fresh and
+            <h2 className="scroll-m-20 pb-2 text-xl font-medium tracking-tight mt-6">
+              Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
               ⏩delivered fast!
             </h2>
             <div className="flex gap-4 mt-14">
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
         <Divider className="my-8" />
       </div>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-center lg:text-4xl">
+      <h1 className="scroll-m-20 text-4xl font-poppins font-extrabold tracking-tight text-center lg:text-4xl">
         Featured Pizzas
       </h1>
       <div className="flex flex-wrap gap-20 justify-center">

@@ -50,7 +50,7 @@ export default function Entry(props) {
       <Card className="px-6 py-6 rounded-[20px] w-[440px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
-            <h1 className="font-lg">Get Started with </h1>
+            <h1>Get Started with </h1>
             <BrandIcon />
           </div>
         </CardHeader>
@@ -58,8 +58,7 @@ export default function Entry(props) {
           <Tabs
             variant="underlined"
             defaultSelectedKey={props.defaultTab}
-            classNames={{ tab: "h-12" }}
-            className="my-4"
+            classNames={{ tab: "h-12 font-medium mb-2" }}
             fullWidth
             size="lg"
             radius="lg"

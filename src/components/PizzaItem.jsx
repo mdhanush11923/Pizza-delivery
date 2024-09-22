@@ -39,7 +39,7 @@ export default function PizzaItem({ id, color }) {
         <DropdownTrigger>
           <Button
             fullWidth
-            className="capitalize bg-background text-forground"
+            className="capitalize bg-background font-poppins text-forground"
             radius="sm"
             color="warning"
             size="sm"
@@ -82,7 +82,7 @@ export default function PizzaItem({ id, color }) {
             isBlurred
           />
           <div>
-            <h1 className="scroll-m-20 text-black text-2xl font-extrabold tracking-tight">
+            <h1 className="scroll-m-20 text-black font-poppins text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
           </div>
@@ -97,9 +97,45 @@ export default function PizzaItem({ id, color }) {
       </Card>
       <Accordion isCompact variant="bordered">
         <AccordionItem
+          motionProps={{
+            variants: {
+              enter: {
+                y: 0,
+                opacity: 1,
+                height: "auto",
+                transition: {
+                  height: {
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30,
+                    duration: 1,
+                  },
+                  opacity: {
+                    easings: "ease",
+                    duration: 1,
+                  },
+                },
+              },
+              exit: {
+                y: -10,
+                opacity: 0,
+                height: 0,
+                transition: {
+                  height: {
+                    easings: "ease",
+                    duration: 0.25,
+                  },
+                  opacity: {
+                    easings: "ease",
+                    duration: 0.3,
+                  },
+                },
+              },
+            },
+          }}
           classNames={{
             title: "font-normal font-semibold text-background",
-            content: "text-background text-left opacity-85",
+            content: "text-background text-left  opacity-85",
           }}
           key="1"
           aria-label="Accordion 1"
@@ -109,10 +145,10 @@ export default function PizzaItem({ id, color }) {
         </AccordionItem>
       </Accordion>
       <div className="flex px-5 justify-between">
-        <h2 className="scroll-m-20 pb-2 text-background text-xl font-bold tracking-tight first:mt-0">
+        <h2 className="scroll-m-20 text-background text-xl font-extrabold tracking-tight first:mt-0">
           ₹ {pizza.prices[selectedSize]}
         </h2>
-        <h2 className="scroll-m-20 pb-2 ml-4 text-background text-md font-semibold tracking-tight first:mt-0">
+        <h2 className="scroll-m-20 ml-4 text-background text-sm opacity-85 tracking-tight first:mt-0">
           In Stock: {pizza.availableQuantity}
         </h2>
       </div>
