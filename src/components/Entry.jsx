@@ -10,8 +10,8 @@ import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import BrandIcon from "./BrandIcon";
 
 export default function Entry(props) {
-  
-  const buttonClass = "bg-[#EF5814] hover:bg-[#98390d] text-[white] h-14";
+  "#F27F14";
+  const buttonClass = "hover:bg-[#F27F14] h-14";
   const [details, setDetails] = React.useState({
     email: "",
     p1: "",
@@ -90,7 +90,7 @@ export default function Entry(props) {
                 <Button
                   as={Link}
                   fullWidth
-                  radius="sm"
+                  radius="lg"
                   className={buttonClass}
                   variant="solid"
                   size="lg"
@@ -152,7 +152,7 @@ export default function Entry(props) {
                 <Button
                   as={Link}
                   fullWidth
-                  radius="md"
+                  radius="lg"
                   className={buttonClass}
                   variant="solid"
                   size="lg"
