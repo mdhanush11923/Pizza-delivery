@@ -60,9 +60,7 @@ export default function PizzaItem({id , color}) {
   }
 
   return (
-    <Card
-      className="w-[275px] flex flex-col bg-foreground pb-4 gap-2 rounded-b-[10px] shadow-sm"
-    >
+    <Card className="w-[275px] flex flex-col bg-foreground pb-4 gap-2 rounded-b-[10px] shadow-sm">
       <Card
         isPressable
         style={{ backgroundColor: color }}
@@ -103,9 +101,14 @@ export default function PizzaItem({id , color}) {
           {pizza.description}
         </AccordionItem>
       </Accordion>
-      <h2 className="scroll-m-20 pb-2 ml-4 text-background text-xl font-bold tracking-tight first:mt-0">
-        ₹ {pizza.prices[selectedSize]}
-      </h2>
+      <div className="flex px-5 justify-between">
+        <h2 className="scroll-m-20 pb-2 text-background text-xl font-bold tracking-tight first:mt-0">
+          ₹ {pizza.prices[selectedSize]}
+        </h2>
+        <h2 className="scroll-m-20 pb-2 ml-4 text-background text-md font-semibold tracking-tight first:mt-0">
+          In Stock: {pizza.availableQuantity}
+        </h2>
+      </div>
     </Card>
   );
 }

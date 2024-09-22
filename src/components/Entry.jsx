@@ -10,8 +10,7 @@ import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import BrandIcon from "./BrandIcon";
 
 export default function Entry(props) {
-  "#F27F14";
-  const buttonClass = "hover:bg-[#F27F14] h-14";
+  const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
   const [details, setDetails] = React.useState({
     email: "",
     p1: "",
@@ -48,10 +47,10 @@ export default function Entry(props) {
 
   return (
     <div className="flex flex-wrap flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[#3A5565]">
-      <Card className="px-6 py-6 rounded-[30px] w-[440px]">
+      <Card className="px-6 py-6 rounded-[20px] w-[440px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
-            <h1 className="font-lg">Welcome to </h1>
+            <h1 className="font-lg">Get Started with </h1>
             <BrandIcon />
           </div>
         </CardHeader>

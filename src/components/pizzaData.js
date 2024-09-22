@@ -27,6 +27,7 @@ const pizzas = [
     ],
     category: "Vegetarian",
     image: Margherita,
+    availableQuantity: 10,
   },
   {
     id: 1,
@@ -56,6 +57,7 @@ const pizzas = [
     ],
     category: "Non-Vegetarian",
     image: Pepperoni,
+    availableQuantity: 10,
   },
   {
     id: 2,
@@ -86,6 +88,7 @@ const pizzas = [
     ],
     category: "Vegetarian",
     image: VeggieDelight,
+    availableQuantity: 10,
   },
   {
     id: 3,
@@ -109,6 +112,7 @@ const pizzas = [
     ],
     category: "Non-Vegetarian",
     image: BBQChicken,
+    availableQuantity: 10,
   },
   {
     id: 4,
@@ -139,6 +143,7 @@ const pizzas = [
     ],
     category: "Vegetarian",
     image: circlePizza,
+    availableQuantity: 10,
   },
   {
     id: 5,
@@ -159,6 +164,7 @@ const pizzas = [
     veggiesOptions: [{ key: "Onions", label: "Onions" }],
     category: "Non-Vegetarian",
     image: circlePizza,
+    availableQuantity: 10,
   },
   {
     id: 6,
@@ -179,6 +185,7 @@ const pizzas = [
     veggiesOptions: [{ key: "Onions", label: "Onions" }],
     category: "Non-Vegetarian",
     image: circlePizza,
+    availableQuantity: 10,
   },
   {
     id: 7,
@@ -205,6 +212,7 @@ const pizzas = [
     ],
     category: "Non-Vegetarian",
     image: circlePizza,
+    availableQuantity: 10,
   },
   {
     id: 8,
@@ -229,6 +237,7 @@ const pizzas = [
     ],
     category: "Vegetarian",
     image: circlePizza,
+    availableQuantity: 10,
   },
 ];
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Select, SelectItem } from "@nextui-org/select";
-import { Button, Checkbox, CheckboxGroup } from '@nextui-org/react';
+import { Button, Checkbox, CheckboxGroup, Input } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
 import customPizzaImg from "../Images/customPizza.png";
 
@@ -72,38 +72,57 @@ const PizzaCustomization = () => {
           <Image width={230} isBlurred src={customPizzaImg} />
         </div>
 
-        <Select
-          variant="faded"
-          label="Choose Pizza Base"
-          selectedKeys={base}
-          onSelectionChange={setBase}
-        >
-          {pizzaBases.map((item) => (
-            <SelectItem key={item.key}>{item.label}</SelectItem>
-          ))}
-        </Select>
+        <div className="flex flex-wrap sm:flex-nowrap gap-8 w-full">
+          <Select
+            variant="faded"
+            label="Choose Pizza Base"
+            selectedKeys={base}
+            onSelectionChange={setBase}
+          >
+            {pizzaBases.map((item) => (
+              <SelectItem key={item.key}>{item.label}</SelectItem>
+            ))}
+          </Select>
 
-        <Select
-          variant="faded"
-          label="Choose Sauce"
-          selectedKeys={sauce}
-          onSelectionChange={setSauce}
-        >
-          {sauces.map((item) => (
-            <SelectItem key={item.key}>{item.label}</SelectItem>
-          ))}
-        </Select>
+          <Select
+            variant="faded"
+            label="Choose Sauce"
+            selectedKeys={sauce}
+            onSelectionChange={setSauce}
+          >
+            {sauces.map((item) => (
+              <SelectItem key={item.key}>{item.label}</SelectItem>
+            ))}
+          </Select>
+        </div>
 
-        <Select
-          variant="faded"
-          label="Choose Cheese"
-          selectedKeys={cheese}
-          onSelectionChange={setCheese}
-        >
-          {cheeses.map((item) => (
-            <SelectItem key={item.key}>{item.label}</SelectItem>
-          ))}
-        </Select>
+        <div className="flex flex-wrap sm:flex-nowrap gap-8 w-full">
+          <Select
+            variant="faded"
+            label="Choose Cheese"
+            selectedKeys={cheese}
+            onSelectionChange={setCheese}
+          >
+            {cheeses.map((item) => (
+              <SelectItem key={item.key}>{item.label}</SelectItem>
+            ))}
+          </Select>
+
+          <Input
+            variant="faded"
+            type="number"
+            label="Quantity"
+            placeholder="0"
+            labelPlacement="inside"
+            startContent={
+              <div className="pointer-events-none flex items-center">
+                <span className="text-default-400 text-small">🛒</span>
+              </div>
+            }
+            min={0}
+            max={10}
+          />
+        </div>
 
         <CheckboxGroup
           classNames={{ label: "text-center" }}
