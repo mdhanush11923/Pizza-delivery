@@ -18,10 +18,12 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useLocation } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useCart } from "./Cart";
 
 export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { pathname } = useLocation();
+  const { cartCount, setCartCount } = useCart();
 
   const menuItems = [
     { title: "Home", path: "/pizza-delivery/" },
@@ -64,7 +66,7 @@ export default function Topbar(props) {
           <IconButton aria-label="cart">
             <Badge
               size="lg"
-              content={true && ""}
+              content={cartCount===0 ? "" : cartCount}
               variant="shadow"
               color="success"
             >

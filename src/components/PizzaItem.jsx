@@ -21,10 +21,17 @@ import { Link } from "@nextui-org/react";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
 import pizzas from "./pizzaData";
+import { useCart } from "./Cart";
 
-export default function PizzaItem({id , color}) {
+export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
   const pizza = pizzas[id];
+
+  const { cartCount, setCartCount } = useCart();
+
+  const addToCart = () => {
+    setCartCount(cartCount + 1);
+  };
 
   function DemoDropDown() {
     return (
@@ -82,7 +89,7 @@ export default function PizzaItem({id , color}) {
           <div className="flex flex-col w-full gap-4 px-5">
             <DemoDropDown />
 
-            <Button color="danger" radius="full" size="lg">
+            <Button color="danger" radius="full" size="lg" onClick={addToCart}>
               <AddIcon />
             </Button>
           </div>
