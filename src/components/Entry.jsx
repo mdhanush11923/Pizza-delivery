@@ -66,6 +66,7 @@ export default function Entry(props) {
             <Tab key="login" title="Login">
               <div className="flex-col space-y-5 justify-center">
                 <Input
+                  isClearable
                   name="email"
                   onChange={handleLoginChange}
                   value={loginDetails.email}
@@ -73,6 +74,7 @@ export default function Entry(props) {
                   label="Email"
                 />
                 <Input
+                  isClearable
                   name="p1"
                   onChange={handleLoginChange}
                   value={loginDetails.p1}

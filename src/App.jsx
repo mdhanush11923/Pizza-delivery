@@ -10,6 +10,7 @@ import Layout from "./components/Layout";
 import Orders from "./components/Orders";
 import Home from "./components/Home";
 import { CartProvider } from "./components/Cart";
+const LasyMenu = React.lazy(() => import("./components/Menu"));
 
 export default function App() {
   const navigate = useNavigate();
@@ -31,7 +32,14 @@ export default function App() {
               element={<Layout darkMode={darkMode} changeMode={changeMode} />}
             >
               <Route index element={<Home />} />
-              <Route path="/pizza-delivery/menu" element={<Menu />} />
+              <Route
+                path="/pizza-delivery/menu"
+                element={
+                  <React.Suspense fallback="Loading....">
+                    <LasyMenu />
+                  </React.Suspense>
+                }
+              />
               <Route
                 path="/pizza-delivery/custom"
                 element={<PizzaCustomization />}

@@ -37,7 +37,7 @@ export default function Menu() {
   return (
     <div className="flex flex-col h-full items-center p-5 md:p-16 gap-6">
       <div className="flex flex-wrap gap-4 sm:px-10 w-full justify-center sm:justify-between">
-        <h1 className="scroll-m-20 mb-4 font-poppins font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
+        <h1 className="scroll-m-20 font-poppins font-extrabold tracking-tight text-center text-3xl lg:text-4xl">
           {selectedKey}
         </h1>
         <Tabs
