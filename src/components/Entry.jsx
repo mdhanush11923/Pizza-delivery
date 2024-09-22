@@ -47,8 +47,8 @@ export default function Entry(props) {
   }
 
   return (
-    <div className="flex flex-wrap h-screen flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[orange]">
-      <Card className="px-6 py-6 w-[440px]">
+    <div className="flex flex-wrap flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[#3A5565]">
+      <Card className="px-6 py-6 rounded-[30px] w-[440px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
             <h1 className="font-lg">Welcome to </h1>
@@ -56,7 +56,15 @@ export default function Entry(props) {
           </div>
         </CardHeader>
         <CardBody className="">
-          <Tabs variant="light" defaultSelectedKey={props.defaultTab} classNames={{tab: "h-12"}} className="my-4" fullWidth size="lg" radius="lg">
+          <Tabs
+            variant="underlined"
+            defaultSelectedKey={props.defaultTab}
+            classNames={{ tab: "h-12" }}
+            className="my-4"
+            fullWidth
+            size="lg"
+            radius="lg"
+          >
             <Tab key="login" title="Login">
               <div className="flex-col space-y-5 justify-center">
                 <Input
@@ -158,13 +166,9 @@ export default function Entry(props) {
           </Tabs>
         </CardBody>
       </Card>
-      <Card isBlurred className="hidden bg-[#ea580c]] sm:flex">
+      <Card className="bg-transparent sm:flex">
         <CardBody>
-          <Image
-            width={720}
-            src={windowImg}
-            alt="NextUI Album Cover"
-          />
+          <Image width={720} src={windowImg} alt="NextUI Album Cover" />
         </CardBody>
       </Card>
     </div>

@@ -1,3 +1,9 @@
+import Pepperoni from "../Images/Pepperoni.png";
+import Margherita from "../Images/Margherita.png";
+import VeggieDelight from "../Images/VeggieDelight.png";
+import BBQChicken from "../Images/BBQChicken.png";
+import circlePizza from "../Images/circlePizza.png";
+
 const pizzas = [
   {
     id: 0,
@@ -20,6 +26,7 @@ const pizzas = [
       { key: "Olives", label: "Olives" },
     ],
     category: "Vegetarian",
+    image: Margherita,
   },
   {
     id: 1,
@@ -48,6 +55,7 @@ const pizzas = [
       { key: "Mushrooms", label: "Mushrooms" },
     ],
     category: "Non-Vegetarian",
+    image: Pepperoni,
   },
   {
     id: 2,
@@ -77,6 +85,7 @@ const pizzas = [
       { key: "Olives", label: "Olives" },
     ],
     category: "Vegetarian",
+    image: VeggieDelight,
   },
   {
     id: 3,
@@ -99,6 +108,7 @@ const pizzas = [
       { key: "Mushrooms", label: "Mushrooms" },
     ],
     category: "Non-Vegetarian",
+    image: BBQChicken,
   },
   {
     id: 4,
@@ -128,6 +138,7 @@ const pizzas = [
       { key: "Onions", label: "Onions" },
     ],
     category: "Vegetarian",
+    image: circlePizza,
   },
   {
     id: 5,
@@ -147,6 +158,7 @@ const pizzas = [
     cheeses: [{ key: "Mozzarella", label: "Mozzarella" }],
     veggiesOptions: [{ key: "Onions", label: "Onions" }],
     category: "Non-Vegetarian",
+    image: circlePizza,
   },
   {
     id: 6,
@@ -166,6 +178,7 @@ const pizzas = [
     cheeses: [{ key: "Mozzarella", label: "Mozzarella" }],
     veggiesOptions: [{ key: "Onions", label: "Onions" }],
     category: "Non-Vegetarian",
+    image: circlePizza,
   },
   {
     id: 7,
@@ -191,9 +204,10 @@ const pizzas = [
       { key: "Bell Peppers", label: "Bell Peppers" },
     ],
     category: "Non-Vegetarian",
+    image: circlePizza,
   },
   {
-    id: 8, 
+    id: 8,
     name: "Pesto Veggie",
     description:
       "A vibrant mix of fresh pesto, mozzarella, and seasonal vegetables.",
@@ -214,19 +228,18 @@ const pizzas = [
       { key: "Spinach", label: "Spinach" },
     ],
     category: "Vegetarian",
+    image: circlePizza,
   },
 ];
 
+const vegetarianPizzas = pizzas.filter(
+  (pizza) => pizza.category === "Vegetarian"
+);
 
-
-  const vegetarianPizzas = pizzas.filter(
-    (pizza) => pizza.category === "Vegetarian"
-  );
-
-  const nonVegetarianPizzas = pizzas.filter(
-    (pizza) => pizza.category === "Non-Vegetarian"
-  );
+const nonVegetarianPizzas = pizzas.filter(
+  (pizza) => pizza.category === "Non-Vegetarian"
+);
 
 export default pizzas;
 
-export {vegetarianPizzas, nonVegetarianPizzas};
+export { vegetarianPizzas, nonVegetarianPizzas };

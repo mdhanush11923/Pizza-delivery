@@ -10,17 +10,16 @@ import {
   AccordionItem,
   Accordion,
 } from "@nextui-org/react";
-import PizzaImg from "../Images/pizza.jpg";
-import { Divider } from "@nextui-org/react";
-import { Link } from "@nextui-org/react";
-import AddIcon from "@mui/icons-material/Add";
-import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
+import AddIcon from "@mui/icons-material/Add";
+import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
 import pizzas from "./pizzaData";
 
 export default function PizzaItem({id , color}) {
@@ -62,7 +61,6 @@ export default function PizzaItem({id , color}) {
 
   return (
     <Card
-      isPressable
       className="w-[275px] flex flex-col bg-foreground pb-4 gap-2 rounded-b-[10px] shadow-sm"
     >
       <Card
@@ -75,7 +73,8 @@ export default function PizzaItem({id , color}) {
             className="w-full object-cover"
             width="100%"
             radius="full"
-            src={PizzaImg}
+            src={pizza.image}
+            isBlurred
           />
           <div>
             <h1 className="scroll-m-20 text-black text-2xl font-extrabold tracking-tight">
