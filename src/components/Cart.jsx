@@ -40,19 +40,20 @@ export default function Cart() {
           isBlurred
           isPressable
           radius="sm"
+          shadow="lg"
           onPress={onOpen}
-          className="fixed bottom-5 left-10 border right-10 p-4 text-center z-50"
+          className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
-          <h1>
+          <h1 className="text-center  m-0">
             {cartCount} {cartCount === 1 ? "item" : "items"} in cart
           </h1>
           <Modal
             scrollBehavior="inside"
-            backdrop="opaque"
+            backdrop="blur"
             isOpen={isOpen}
             onOpenChange={onOpenChange}
             classNames={{
-              backdrop: "bg-foreground/50 backdrop-opacity-50",
+              backdrop: "",
             }}
           >
             <ModalContent>

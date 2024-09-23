@@ -54,14 +54,14 @@ export default function Menu() {
           aria-label="Tabs sizes"
         >
           <Tab key="All items" title="Both">
-            <div className="flex flex-wrap justify-center gap-16">
+            <div className="flex flex-wrap justify-center items-center gap-16">
               {pizzas.map((pizza, index) => (
                 <PizzaItem key={index} id={index} color="bg-peachblossom" />
               ))}
             </div>
           </Tab>
           <Tab key="Vegetarian" title={<Image width={30} src={vegIcon} />}>
-            <div className="flex flex-wrap  w-full justify-center gap-16">
+            <div className="flex flex-wrap  w-full items-center justify-center gap-16">
               {vegetarianPizzas.map((pizza) => (
                 <PizzaItem key={pizza.id} id={pizza.id} color="bg-veggreen" />
               ))}
@@ -71,7 +71,7 @@ export default function Menu() {
             key="Non Vegetarian"
             title={<Image width={30} src={nonVegIcon} />}
           >
-            <div className="flex flex-wrap justify-center gap-16">
+            <div className="flex flex-wrap items-center justify-center gap-16">
               {nonVegetarianPizzas.map((pizza) => (
                 <PizzaItem key={pizza.id} id={pizza.id} color="bg-[#A1D6B2]" />
               ))}
