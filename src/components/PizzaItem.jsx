@@ -89,7 +89,7 @@ export default function PizzaItem({ id, color }) {
           <div className="flex flex-col w-full gap-4 px-5">
             <DemoDropDown />
 
-            <Button color="danger" radius="full" size="lg" onClick={addToCart}>
+            <Button className="rounded-[20px]" color="danger" size="lg" onClick={addToCart}>
               <AddIcon />
             </Button>
           </div>

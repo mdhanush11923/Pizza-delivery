@@ -18,6 +18,7 @@ export default {
       limefrost: "#B4E380",
       veggreen: "#C3FF93",
       lemonburst: "#FFFF80",
+      myhouseblue: "#4C5D65",
       peachblossom: "#fadfa1",
     },
     extend: {
