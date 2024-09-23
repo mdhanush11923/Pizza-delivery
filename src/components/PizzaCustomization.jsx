@@ -63,7 +63,7 @@ const PizzaCustomization = () => {
   };
 
   return (
-    <div className="flex flex-col items-center h-screen p-10 pt-4">
+    <div className="flex flex-col items-center h-full p-10 pt-4">
       <div className="flex flex-col items-center gap-12">
         <div className="flex flex-wrap justify-center items-center gap-10">
           <h1 className="scroll-m-20 sm:mb-4 text-4xl text-center font-poppins font-extrabold tracking-tight lg:text-5xl">
@@ -142,7 +142,7 @@ const PizzaCustomization = () => {
         </CheckboxGroup>
 
         <Button
-          className="w-44 h-14 mb-20"
+          className="w-44 h-14"
           color="danger"
           size="lg"
           radius="sm"
