@@ -15,25 +15,39 @@ const CartContext = createContext();
 
 // Create a provider component
 export const CartProvider = ({ children }) => {
-  // State to store items in the cart
   const [cartItems, setCartItems] = useState([]);
-  const cartCount = cartItems.length;
-  // Function to add an item to the cart
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0); // Sum up the quantities
+
   const addItemToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((cartItem) => cartItem.itemId === item.itemId);
+
+      if (existingItem) {
+        return prevItems.map((cartItem) =>
+          cartItem.itemId === item.itemId
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        return [...prevItems, { ...item, quantity: 1 }];
+      }
+    });
   };
 
-  // Function to remove an item from the cart
   const removeItemFromCart = (itemId) => {
     setCartItems((prevItems) =>
-      prevItems.filter((item) => item.itemId !== itemId)
+      prevItems
+        .map((item) =>
+          item.itemId === itemId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
     );
   };
 
   return (
-    <CartContext.Provider
-      value={{ cartItems, cartCount, addItemToCart, removeItemFromCart }}
-    >
+    <CartContext.Provider value={{ cartItems, cartCount, addItemToCart, removeItemFromCart }}>
       {children}
     </CartContext.Provider>
   );
@@ -43,7 +57,7 @@ export const CartProvider = ({ children }) => {
 export const useCart = () => {
   return useContext(CartContext);
 };
-
+// UI part
 export default function Cart() {
   const { cartItems, removeItemFromCart } = useCart();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -60,8 +74,7 @@ export default function Cart() {
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center  m-0">
-            {cartItems.length} {cartItems.length === 1 ? "item" : "items"} in
-            cart
+            {cartItems.reduce((total, item) => total + item.quantity, 0)} items in cart
           </h1>
           <Modal
             scrollBehavior="inside"
@@ -84,6 +97,7 @@ export default function Cart() {
                         <div>
                           <h4>{item.itemName}</h4>
                           <p>Price: ${item.itemPrice}</p>
+                          <p>Quantity: {item.quantity}</p>
                         </div>
                         <Button
                           size="sm"
