@@ -55,17 +55,10 @@ export default function Home() {
         Featured Pizzas
       </h1>
       <div className="flex flex-wrap gap-20 justify-center">
-        {Array(3)
-          .fill(null)
-          .map((_, index) => (
-            <PizzaItem
-              key={index}
-              color={index === 1 ? "bg-lemonburst" : "bg-limefrost"}
-              id={index}
-            />
-          ))}
+        <PizzaItem color="bg-limefrost" id={0} />
+        <PizzaItem color="bg-lemonburst" id={1} />
+        <PizzaItem color="bg-limefrost" id={2} />
       </div>
-
     </div>
   );
 }
