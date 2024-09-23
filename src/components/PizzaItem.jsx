@@ -27,10 +27,17 @@ export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
   const pizza = pizzas[id];
 
-  const { cartCount, setCartCount } = useCart();
+  const { addItemToCart } = useCart();  // Access the function to add items to the cart from the CartContext
 
   const addToCart = () => {
-    setCartCount(cartCount + 1);
+    // Add the pizza with selected size and its details to the cart
+    addItemToCart({
+      itemId: id,
+      itemName: pizza.name,
+      itemPrice: pizza.prices[selectedSize],
+      itemSize: selectedSize,
+    });
+
   };
 
   function DemoDropDown() {
@@ -39,7 +46,7 @@ export default function PizzaItem({ id, color }) {
         <DropdownTrigger>
           <Button
             fullWidth
-            className="capitalize bg-background font-poppins text-forground"
+            className="capitalize bg-background font-poppins text-foreground"
             radius="sm"
             color="warning"
             size="sm"
@@ -55,7 +62,7 @@ export default function PizzaItem({ id, color }) {
           selectionMode="single"
           selectedKeys={new Set([selectedSize])}
           onSelectionChange={(keys) =>
-            setSelectedSize(Array.from(keys).join(", "))
+            setSelectedSize(keys.values().next().value)
           }
         >
           <DropdownItem key="small">Small (8 Inches)</DropdownItem>

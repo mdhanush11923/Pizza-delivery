@@ -23,7 +23,7 @@ import { useCart } from "./Cart";
 export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { pathname } = useLocation();
-  const { cartCount, setCartCount } = useCart();
+  const { cartCount } = useCart();
 
   const menuItems = [
     { title: "Home", path: "/pizza-delivery/" },

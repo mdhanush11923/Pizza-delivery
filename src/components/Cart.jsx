@@ -15,10 +15,25 @@ const CartContext = createContext();
 
 // Create a provider component
 export const CartProvider = ({ children }) => {
-  const [cartCount, setCartCount] = useState(0);
+  // State to store items in the cart
+  const [cartItems, setCartItems] = useState([]);
+  const cartCount = cartItems.length;
+  // Function to add an item to the cart
+  const addItemToCart = (item) => {
+    setCartItems((prevItems) => [...prevItems, item]);
+  };
+
+  // Function to remove an item from the cart
+  const removeItemFromCart = (itemId) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.itemId !== itemId)
+    );
+  };
 
   return (
-    <CartContext.Provider value={{ cartCount, setCartCount }}>
+    <CartContext.Provider
+      value={{ cartItems, cartCount, addItemToCart, removeItemFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
@@ -30,12 +45,12 @@ export const useCart = () => {
 };
 
 export default function Cart() {
-  const { cartCount, setCartCount } = useCart();
+  const { cartItems, removeItemFromCart } = useCart();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <div>
-      {cartCount > 0 && (
+      {cartItems.length > 0 && (
         <Card
           isBlurred
           isPressable
@@ -45,7 +60,8 @@ export default function Cart() {
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center  m-0">
-            {cartCount} {cartCount === 1 ? "item" : "items"} in cart
+            {cartItems.length} {cartItems.length === 1 ? "item" : "items"} in
+            cart
           </h1>
           <Modal
             scrollBehavior="inside"
@@ -60,35 +76,31 @@ export default function Cart() {
               {(onClose) => (
                 <>
                   <ModalHeader className="flex flex-col gap-1">
-                    Modal Title
+                    Cart Items
                   </ModalHeader>
                   <ModalBody>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nullam pulvinar risus non risus hendrerit venenatis.
-                      Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nullam pulvinar risus non risus hendrerit venenatis.
-                      Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                    </p>
-                    <p>
-                      Magna exercitation reprehenderit magna aute tempor
-                      cupidatat consequat elit dolor adipisicing. Mollit dolor
-                      eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                      officia eiusmod Lorem aliqua enim laboris do dolor
-                      eiusmod. Et mollit incididunt nisi consectetur esse
-                      laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
-                      deserunt nostrud ad veniam.
-                    </p>
+                    {cartItems.map((item) => (
+                      <div key={item.itemId} className="flex justify-between">
+                        <div>
+                          <h4>{item.itemName}</h4>
+                          <p>Price: ${item.itemPrice}</p>
+                        </div>
+                        <Button
+                          size="sm"
+                          color="danger"
+                          onPress={() => removeItemFromCart(item.itemId)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    ))}
                   </ModalBody>
                   <ModalFooter>
                     <Button color="danger" variant="light" onPress={onClose}>
                       Close
                     </Button>
                     <Button color="primary" onPress={onClose}>
-                      Action
+                      Proceed to Checkout
                     </Button>
                   </ModalFooter>
                 </>
