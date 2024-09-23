@@ -3,6 +3,11 @@ import Margherita from "../Images/Margherita.png";
 import VeggieDelight from "../Images/VeggieDelight.png";
 import BBQChicken from "../Images/BBQChicken.png";
 import circlePizza from "../Images/circlePizza.png";
+import fourCheese from "../Images/FourCheese.png";
+import hawaiian from "../Images/Hawaiian.png";
+import buffaloChicken from "../Images/BuffaloChicken.png"
+import meatLovers from "../Images/MeatLovers.png";
+import pestoVeggie from "../Images/PestoVeggie.png";
 
 const pizzas = [
   {
@@ -142,7 +147,7 @@ const pizzas = [
       { key: "Onions", label: "Onions" },
     ],
     category: "Vegetarian",
-    image: circlePizza,
+    image: fourCheese,
     availableQuantity: 10,
   },
   {
@@ -163,7 +168,7 @@ const pizzas = [
     cheeses: [{ key: "Mozzarella", label: "Mozzarella" }],
     veggiesOptions: [{ key: "Onions", label: "Onions" }],
     category: "Non-Vegetarian",
-    image: circlePizza,
+    image: hawaiian,
     availableQuantity: 10,
   },
   {
@@ -184,7 +189,7 @@ const pizzas = [
     cheeses: [{ key: "Mozzarella", label: "Mozzarella" }],
     veggiesOptions: [{ key: "Onions", label: "Onions" }],
     category: "Non-Vegetarian",
-    image: circlePizza,
+    image: buffaloChicken,
     availableQuantity: 10,
   },
   {
@@ -211,7 +216,7 @@ const pizzas = [
       { key: "Bell Peppers", label: "Bell Peppers" },
     ],
     category: "Non-Vegetarian",
-    image: circlePizza,
+    image: meatLovers,
     availableQuantity: 10,
   },
   {
@@ -236,7 +241,7 @@ const pizzas = [
       { key: "Spinach", label: "Spinach" },
     ],
     category: "Vegetarian",
-    image: circlePizza,
+    image: pestoVeggie,
     availableQuantity: 10,
   },
 ];
