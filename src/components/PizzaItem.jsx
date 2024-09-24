@@ -108,44 +108,8 @@ export default function PizzaItem({ id, color }) {
       </Card>
       <Accordion isCompact variant="bordered">
         <AccordionItem
-          motionProps={{
-            variants: {
-              enter: {
-                y: 0,
-                opacity: 1,
-                height: "auto",
-                transition: {
-                  height: {
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 30,
-                    duration: 1,
-                  },
-                  opacity: {
-                    easings: "ease",
-                    duration: 1,
-                  },
-                },
-              },
-              exit: {
-                y: -10,
-                opacity: 0,
-                height: 0,
-                transition: {
-                  height: {
-                    easings: "ease",
-                    duration: 0.25,
-                  },
-                  opacity: {
-                    easings: "ease",
-                    duration: 0.3,
-                  },
-                },
-              },
-            },
-          }}
           classNames={{
-            title: "font-normal font-semibold text-background",
+            title: "font-normal font-semibold text-[#F5F5F5]",
             content: "text-background text-left  opacity-85",
           }}
           key="1"
