@@ -697,8 +697,6 @@ const nonVegetarianPizzas = pizzas.filter(
 
 export default pizzas;
 
-export { vegetarianPizzas, nonVegetarianPizzas };
-
 export {
   vegetarianPizzas,
   nonVegetarianPizzas,
