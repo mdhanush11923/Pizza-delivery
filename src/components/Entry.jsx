@@ -19,18 +19,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export default function Entry(props) {
-    const [isVisible, setIsVisible] = React.useState({
-      loginPassword: false,
-      signupPassword: false,
-      signupConfirm: false,
-    });
+  const [isVisible, setIsVisible] = React.useState({
+    loginPassword: false,
+    signupPassword: false,
+    signupConfirm: false,
+  });
 
-      const toggleVisibility = (field) => {
-        setIsVisible((prevState) => ({
-          ...prevState,
-          [field]: !prevState[field],
-        }));
-      };
+  const toggleVisibility = (field) => {
+    setIsVisible((prevState) => ({
+      ...prevState,
+      [field]: !prevState[field],
+    }));
+  };
 
   const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
   const [details, setDetails] = React.useState({
@@ -62,10 +62,15 @@ export default function Entry(props) {
       setErrorMessage("Please fill in all fields for login.");
       return;
     }
+
+    if (!validateEmail(loginDetails.email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
     // Proceed with login action (e.g., API call)
     console.log("Login Details:", loginDetails);
   }
-
   function handleSignupSubmit() {
     if (
       !details.email ||
@@ -77,29 +82,53 @@ export default function Entry(props) {
       setErrorMessage("Please fill in all fields for sign up.");
       return;
     }
+
+    if (!validateEmail(details.email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
     if (details.p1 !== details.p2) {
       setErrorMessage("Passwords do not match.");
       return;
     }
+
     // Proceed with signup action (e.g., API call)
     console.log("Sign Up Details:", details);
-    
   }
 
-     function handleLoginClear(inputName) {
-       setLoginDetails((prevDetails) => ({
-         ...prevDetails,
-         [inputName]: "",
-       }));
-     }
+  // Email validation function using regex
+  const validateEmail = (email) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
 
-     // Clear function for signup form inputs
-     function handleSignupClear(inputName) {
-       setDetails((prevDetails) => ({
-         ...prevDetails,
-         [inputName]: "",
-       }));
-     }
+  const isInvalidLoginEmail = React.useMemo(() => {
+    if (loginDetails.email === "") return false;
+
+    return validateEmail(loginDetails.email) ? false : true;
+  }, [loginDetails.email]);
+
+  const isInvalidSignUpEmail = React.useMemo(() => {
+    if (details.email === "") return false;
+
+    return validateEmail(details.email) ? false : true;
+  }, [details.email]);
+
+  function handleLoginClear(inputName) {
+    setLoginDetails((prevDetails) => ({
+      ...prevDetails,
+      [inputName]: "",
+    }));
+  }
+
+  // Clear function for signup form inputs
+  function handleSignupClear(inputName) {
+    setDetails((prevDetails) => ({
+      ...prevDetails,
+      [inputName]: "",
+    }));
+  }
 
   return (
     <div className="flex flex-wrap flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[#3A5565]">
@@ -133,6 +162,9 @@ export default function Entry(props) {
                   value={loginDetails.email}
                   type="email"
                   label="Email"
+                  isInvalid={isInvalidLoginEmail}
+                  color={isInvalidLoginEmail && "danger"}
+                  errorMessage="Please enter a valid email"
                   onClear={() => handleLoginClear("email")} // Clear only the email field
                 />
                 <Input
@@ -208,6 +240,9 @@ export default function Entry(props) {
                   onChange={handleSignupChange}
                   value={details.email}
                   label="Email"
+                  isInvalid={isInvalidSignUpEmail}
+                  color={isInvalidSignUpEmail && "danger"}
+                  errorMessage="Please enter a valid email"
                   onClear={() => handleSignupClear("email")} // Clear only the email field
                 />
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
