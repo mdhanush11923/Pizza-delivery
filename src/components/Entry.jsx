@@ -19,9 +19,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export default function Entry(props) {
-    const [isVisible, setIsVisible] = React.useState(false);
+    const [isVisible, setIsVisible] = React.useState({
+      loginPassword: false,
+      signupPassword: false,
+      signupConfirm: false,
+    });
 
-    const toggleVisibility = () => setIsVisible(!isVisible);
+      const toggleVisibility = (field) => {
+        setIsVisible((prevState) => ({
+          ...prevState,
+          [field]: !prevState[field],
+        }));
+      };
 
   const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
   const [details, setDetails] = React.useState({
@@ -136,17 +145,17 @@ export default function Entry(props) {
                     <button
                       className="focus:outline-none"
                       type="button"
-                      onClick={toggleVisibility}
+                      onClick={() => toggleVisibility("loginPassword")}
                       aria-label="toggle password visibility"
                     >
-                      {isVisible ? (
+                      {isVisible.loginPassword ? (
                         <VisibilityIcon className="text-2xl text-default-400 pointer-events-none" />
                       ) : (
                         <VisibilityOffIcon className="text-2xl text-default-400 pointer-events-none" />
                       )}
                     </button>
                   }
-                  type={isVisible ? "text" : "password"}
+                  type={isVisible.loginPassword ? "text" : "password"}
                 />
                 <div className="flex justify-end">
                   <Button className="place-self-end" variant="light">
@@ -204,19 +213,47 @@ export default function Entry(props) {
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                   <Input
                     name="p1"
-                    type="password"
+                    type={isVisible.signupPassword ? "text" : "password"}
                     onChange={handleSignupChange}
                     value={details.p1}
                     label="Password"
                     onClear={() => handleSignupClear("p1")} // Clear only the password field
+                    endContent={
+                      <button
+                        className="focus:outline-none"
+                        type="button"
+                        onClick={() => toggleVisibility("signupPassword")}
+                        aria-label="toggle password visibility"
+                      >
+                        {isVisible.signupPassword ? (
+                          <VisibilityIcon className="text-2xl text-default-400 pointer-events-none" />
+                        ) : (
+                          <VisibilityOffIcon className="text-2xl text-default-400 pointer-events-none" />
+                        )}
+                      </button>
+                    }
                   />
                   <Input
                     name="p2"
-                    type="password"
+                    type={isVisible.signupConfirm ? "text" : "password"}
                     onChange={handleSignupChange}
                     value={details.p2}
                     label="Confirm"
                     onClear={() => handleSignupClear("p2")} // Clear only the confirm password field
+                    endContent={
+                      <button
+                        className="focus:outline-none"
+                        type="button"
+                        onClick={() => toggleVisibility("signupConfirm")}
+                        aria-label="toggle confirm password visibility"
+                      >
+                        {isVisible.signupConfirm ? (
+                          <VisibilityIcon className="text-2xl text-default-400 pointer-events-none" />
+                        ) : (
+                          <VisibilityOffIcon className="text-2xl text-default-400 pointer-events-none" />
+                        )}
+                      </button>
+                    }
                   />
                 </div>
                 <Button
