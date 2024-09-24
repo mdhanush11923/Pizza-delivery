@@ -15,8 +15,14 @@ import {
 import windowImg from "../Images/windowPizza.png";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import BrandIcon from "./BrandIcon";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export default function Entry(props) {
+    const [isVisible, setIsVisible] = React.useState(false);
+
+    const toggleVisibility = () => setIsVisible(!isVisible);
+
   const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
   const [details, setDetails] = React.useState({
     email: "",
@@ -125,9 +131,22 @@ export default function Entry(props) {
                   name="p1"
                   onChange={handleLoginChange}
                   value={loginDetails.p1}
-                  type="password"
                   label="Password"
-                  onClear={() => handleLoginClear("p1")}
+                  endContent={
+                    <button
+                      className="focus:outline-none"
+                      type="button"
+                      onClick={toggleVisibility}
+                      aria-label="toggle password visibility"
+                    >
+                      {isVisible ? (
+                        <VisibilityIcon className="text-2xl text-default-400 pointer-events-none" />
+                      ) : (
+                        <VisibilityOffIcon className="text-2xl text-default-400 pointer-events-none" />
+                      )}
+                    </button>
+                  }
+                  type={isVisible ? "text" : "password"}
                 />
                 <div className="flex justify-end">
                   <Button className="place-self-end" variant="light">
