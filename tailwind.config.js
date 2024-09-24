@@ -21,6 +21,7 @@ export default {
       myhouseblue: "#4C5D65",
       peachblossom: "#fadfa1",
       reddanger: "#FF204E",
+      charcoalgray: "#424242",
     },
     extend: {
       fontFamily: {

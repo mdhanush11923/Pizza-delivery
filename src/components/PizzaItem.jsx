@@ -46,7 +46,7 @@ export default function PizzaItem({ id, color }) {
         <DropdownTrigger>
           <Button
             fullWidth
-            className="capitalize bg-[#424242] font-poppins text-white"
+            className="capitalize border-charcoalgray bg-transparent border-2 font-poppins text-charcoalgray"
             radius="sm"
             color="warning"
             size="sm"
@@ -88,7 +88,7 @@ export default function PizzaItem({ id, color }) {
             isBlurred
           />
           <div>
-            <h1 className="scroll-m-20 text-black font-poppins text-2xl font-extrabold tracking-tight">
+            <h1 className="scroll-m-20 text-charcoalgray font-poppins text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
           </div>

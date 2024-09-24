@@ -72,18 +72,6 @@ export default function Cart({darkMode}) {
   const { cartItems, removeItemFromCart,cartTotal } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // Handle modal open event only if there are items in the cart
-  const handleOpenModal = () => {
-    if (cartItems.length > 0) {
-      onOpen();
-    }
-  };
-
-  // Handle modal close event when all items are removed
-  const handleRemoveItem = (itemId) => {
-    removeItemFromCart(itemId);
-  };
-
   return (
     <div>
       {cartItems.length > 0 && (
@@ -92,7 +80,7 @@ export default function Cart({darkMode}) {
           isPressable
           radius="sm"
           shadow="lg"
-          onPress={handleOpenModal}
+          onPress={onOpen}
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center  m-0">
