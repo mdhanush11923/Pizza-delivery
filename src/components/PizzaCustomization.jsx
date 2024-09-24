@@ -59,7 +59,7 @@ const PizzaCustomization = () => {
     const itemName = `Custom Pizza with ${[...base].join(", ")}, ${[
       ...sauce,
     ].join(", ")}, ${[...cheese].join(", ")}, and ${veggies.join(", ")}`;
-    const itemPrice = calculatePrice(base, sauce, cheese, veggies); // Implement your own logic to calculate price
+    const itemPrice = 500*quantity; // Implement your own logic to calculate price
 
     const orderData = {
       itemId,
@@ -70,16 +70,6 @@ const PizzaCustomization = () => {
 
     console.log(orderData);
     addItemToCart(orderData);
-  };
-
-  const calculatePrice = (base, sauce, cheese, veggies) => {
-    // Example logic to calculate the price
-    let price = 10; // Base price
-    price += [...base].length * 1; // Add price based on the number of selected bases
-    price += [...sauce].length * 0.5; // Add price based on the number of selected sauces
-    price += [...cheese].length * 1.5; // Add price based on the number of selected cheeses
-    price += veggies.length * 0.75; // Add price based on the number of selected veggies
-    return price;
   };
 
   return (
@@ -164,7 +154,7 @@ const PizzaCustomization = () => {
         </CheckboxGroup>
 
         <Button
-          className="w-44 h-14"
+          className="w-44 h-14 reddanger"
           color="danger"
           size="lg"
           radius="sm"

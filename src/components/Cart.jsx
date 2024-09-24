@@ -105,7 +105,9 @@ export default function Cart({darkMode}) {
           footer: `border-t-[1px] border-[#292f46] ${
             darkMode && "border-white"
           }`,
-          closeButton: `hover:bg-white/5 text-white ${darkMode && "text-myhouseblue"} active:bg-white/10`,
+          closeButton: `hover:bg-white/5 text-white ${
+            darkMode && "text-myhouseblue"
+          } active:bg-white/10`,
         }}
       >
         <ModalContent>
@@ -134,7 +136,7 @@ export default function Cart({darkMode}) {
                           </p>
                           <p>
                             Price:{" "}
-                            <span className="font-bold">${item.itemPrice}</span>{" "}
+                            <span className="font-bold">₹{item.itemPrice}</span>{" "}
                             <span className="text-lg font-semibold font-poppins">
                               ×{item.quantity}
                             </span>
@@ -158,11 +160,11 @@ export default function Cart({darkMode}) {
               <ModalFooter>
                 {cartItems.length > 0 && (
                   <div className="flex justify-between w-full font-extrabold">
-                    <p>${cartTotal.toFixed(2)}</p> {/* Display total */}
+                    <p>₹{cartTotal.toFixed(2)}</p> {/* Display total */}
                   </div>
                 )}
                 <Button
-                  className={darkMode&&"text-white"}
+                  className={darkMode && "text-white"}
                   color="danger"
                   variant="light"
                   onPress={onClose}
