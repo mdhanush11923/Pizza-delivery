@@ -37,12 +37,11 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-
-  const removeItemFromCart = (itemId) => {
+  const removeItemFromCart = (itemId, itemSize) => {
     setCartItems((prevItems) =>
       prevItems
         .map((item) =>
-          item.itemId === itemId
+          item.itemId === itemId && item.itemSize === itemSize
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
@@ -50,8 +49,11 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+
   return (
-    <CartContext.Provider value={{ cartItems, cartCount, addItemToCart, removeItemFromCart }}>
+    <CartContext.Provider
+      value={{ cartItems, cartCount, addItemToCart, removeItemFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
@@ -64,7 +66,19 @@ export const useCart = () => {
 // UI part
 export default function Cart() {
   const { cartItems, removeItemFromCart } = useCart();
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // Handle modal open event only if there are items in the cart
+  const handleOpenModal = () => {
+    if (cartItems.length > 0) {
+      onOpen();
+    }
+  };
+
+  // Handle modal close event when all items are removed
+  const handleRemoveItem = (itemId) => {
+    removeItemFromCart(itemId);
+  };
 
   return (
     <div>
@@ -74,60 +88,68 @@ export default function Cart() {
           isPressable
           radius="sm"
           shadow="lg"
-          onPress={onOpen}
+          onPress={handleOpenModal}
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center  m-0">
             {cartItems.reduce((total, item) => total + item.quantity, 0)} items
             in cart
           </h1>
-          <Modal
-            scrollBehavior="inside"
-            backdrop="blur"
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
-            classNames={{
-              backdrop: "",
-            }}
-          >
-            <ModalContent>
-              {(onClose) => (
-                <>
-                  <ModalHeader className="flex flex-col gap-1">
-                    Cart Items
-                  </ModalHeader>
-                  <ModalBody>
-                    {cartItems.map((item) => (
-                      <div key={item.itemId} className="flex justify-between">
-                        <div>
-                          <h4>{item.itemName}</h4>
-                          <p>Price: ${item.itemPrice}</p>
-                          <p>Quantity: {item.quantity}</p>
-                        </div>
-                        <Button
-                          size="sm"
-                          color="danger"
-                          onPress={() => removeItemFromCart(item.itemId)}
-                        >
-                          Remove
-                        </Button>
-                      </div>
-                    ))}
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button color="danger" variant="light" onPress={onClose}>
-                      Close
-                    </Button>
-                    <Button color="primary" onPress={onClose}>
-                      Proceed to Checkout
-                    </Button>
-                  </ModalFooter>
-                </>
-              )}
-            </ModalContent>
-          </Modal>
         </Card>
       )}
+
+      <Modal
+        scrollBehavior="inside"
+        backdrop="blur"
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                Cart Items
+              </ModalHeader>
+              <ModalBody>
+                {cartItems.length === 0 ? (
+                  <p>Your cart is empty.</p> // Display this if cart is empty
+                ) : (
+                  cartItems.map((item) => (
+                    <div
+                      key={`${item.itemId}-${item.itemSize}`}
+                      className="flex justify-between"
+                    >
+                      <div>
+                        <h4 className="font-semibold">{item.itemName}</h4>
+                        <p>Size: {item.itemSize}</p>
+                        <p>Price: ${item.itemPrice}</p>
+                        <p>Quantity: {item.quantity}</p>
+                      </div>
+                      <Button
+                        size="sm"
+                        color="danger"
+                        onPress={() =>
+                          removeItemFromCart(item.itemId, item.itemSize)
+                        }
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                  ))
+                )}
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+                <Button color="primary" onPress={onClose}>
+                  Proceed to Checkout
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   );
 }
