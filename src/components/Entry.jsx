@@ -30,26 +30,44 @@ export default function Entry(props) {
     p1: "",
   });
 
+  const [errorMessage, setErrorMessage] = React.useState("");
+
   function handleSignupChange(event) {
     const { name, value } = event.target;
-
-    setDetails((prevDetails) => {
-      return {
-        ...prevDetails,
-        [name]: value,
-      };
-    });
+    setDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   }
 
   function handleLoginChange(event) {
     const { name, value } = event.target;
+    setLoginDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+  }
 
-    setLoginDetails((prevDetails) => {
-      return {
-        ...prevDetails,
-        [name]: value,
-      };
-    });
+  function handleLoginSubmit() {
+    if (!loginDetails.email || !loginDetails.p1) {
+      setErrorMessage("Please fill in all fields for login.");
+      return;
+    }
+    // Proceed with login action (e.g., API call)
+    console.log("Login Details:", loginDetails);
+  }
+
+  function handleSignupSubmit() {
+    if (
+      !details.email ||
+      !details.p1 ||
+      !details.p2 ||
+      !details.firstName ||
+      !details.lastName
+    ) {
+      setErrorMessage("Please fill in all fields for sign up.");
+      return;
+    }
+    if (details.p1 !== details.p2) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
+    // Proceed with signup action (e.g., API call)
+    console.log("Sign Up Details:", details);
   }
 
   return (
@@ -61,7 +79,10 @@ export default function Entry(props) {
             <BrandIcon />
           </div>
         </CardHeader>
-        <CardBody className="">
+        <CardBody>
+          {errorMessage && (
+            <div className="text-reddanger text-center mb-4">{errorMessage}</div>
+          )}
           <Tabs
             variant="underlined"
             defaultSelectedKey={props.defaultTab}
@@ -95,14 +116,12 @@ export default function Entry(props) {
                 </div>
 
                 <Button
-                  as={Link}
                   fullWidth
                   radius="lg"
                   className={buttonClass}
                   variant="solid"
                   size="lg"
-                  onPress={() => console.log(loginDetails)}
-                  href="/pizza-delivery/"
+                  onPress={handleLoginSubmit}
                 >
                   Login
                 </Button>
@@ -157,14 +176,12 @@ export default function Entry(props) {
                   />
                 </div>
                 <Button
-                  as={Link}
                   fullWidth
                   radius="lg"
                   className={buttonClass}
                   variant="solid"
                   size="lg"
-                  onPress={() => console.log(details)}
-                  href="/pizza-delivery/"
+                  onPress={handleSignupSubmit}
                 >
                   Sign Up
                 </Button>
