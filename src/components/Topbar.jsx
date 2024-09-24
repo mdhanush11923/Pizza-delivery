@@ -15,7 +15,7 @@ import {
 } from "@nextui-org/react";
 import BrandIcon from "./BrandIcon";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useCart } from "./Cart";
@@ -24,7 +24,7 @@ export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { pathname } = useLocation();
   const { cartCount } = useCart();
-
+  const navigate = useNavigate();
   const menuItems = [
     { title: "Home", path: "/pizza-delivery/" },
     { title: "Menu", path: "/pizza-delivery/menu" },
@@ -34,15 +34,19 @@ export default function Topbar(props) {
   ];
 
   const handleMenuItemClick = (path) => {
-    setIsMenuOpen(false); // Close the menu
-    window.location.href = path; // Navigate to the selected path
+    setIsMenuOpen(!isMenuOpen); // Close the menu
+    navigate(path); // Navigate to the selected path
   };
 
   return (
-    <Navbar maxWidth isBordered is>
+    <Navbar
+      maxWidth
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="md:hidden"
       />
       <NavbarBrand>
@@ -66,7 +70,7 @@ export default function Topbar(props) {
           <IconButton aria-label="cart">
             <Badge
               size="lg"
-              content={cartCount===0 ? "" : cartCount}
+              content={cartCount === 0 ? "" : cartCount}
               variant="shadow"
               color="success"
             >
