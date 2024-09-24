@@ -33,6 +33,9 @@ export default function Entry(props) {
   };
 
   const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
+  
+  var isSignedUp = false;
+
   const [details, setDetails] = React.useState({
     email: "",
     p1: "",
@@ -40,6 +43,7 @@ export default function Entry(props) {
     firstName: "",
     lastName: "",
   });
+
   const [loginDetails, setLoginDetails] = React.useState({
     email: "",
     p1: "",
@@ -69,6 +73,10 @@ export default function Entry(props) {
     }
 
     // Proceed with login action (e.g., API call)
+    if (!isSignedUp) {
+      setErrorMessage("You are not signed up yet.");
+      return;
+    }
     console.log("Login Details:", loginDetails);
   }
   function handleSignupSubmit() {
@@ -94,6 +102,7 @@ export default function Entry(props) {
     }
 
     // Proceed with signup action (e.g., API call)
+    isSignedUp = true;
     console.log("Sign Up Details:", details);
   }
 
@@ -247,6 +256,7 @@ export default function Entry(props) {
                 />
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                   <Input
+                  isClearable
                     name="p1"
                     type={isVisible.signupPassword ? "text" : "password"}
                     onChange={handleSignupChange}
@@ -268,6 +278,7 @@ export default function Entry(props) {
                     }
                   />
                   <Input
+                  isClearable
                     name="p2"
                     type={isVisible.signupConfirm ? "text" : "password"}
                     onChange={handleSignupChange}
