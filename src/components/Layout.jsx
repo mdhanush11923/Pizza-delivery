@@ -8,7 +8,7 @@ const Layout = ({ darkMode, changeMode }) => (
   <div className="h-full">
     <Topbar condition={darkMode} onSwitch={changeMode} />
     <Outlet />
-    <Cart></Cart>
+    <Cart darkMode={darkMode}></Cart>
     <footer className="flex flex-col home-footer w-full h-40 mt-16 gap-2 p-10 sm:h-60 bg-myhouseblue opacity-85 justify-center text-center items-center">
       <p className="text-white">
         &copy; 2024 PIZzA Delivery. All rights reserved.

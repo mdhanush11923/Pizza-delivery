@@ -17,6 +17,10 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0); // Sum up the quantities
+  const cartTotal = cartItems.reduce(
+    (total, item) => total + item.itemPrice * item.quantity,
+    0
+  );
 
   const addItemToCart = (item) => {
     setCartItems((prevItems) => {
@@ -52,7 +56,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, cartCount, addItemToCart, removeItemFromCart }}
+      value={{ cartItems, cartCount,cartTotal, addItemToCart, removeItemFromCart }}
     >
       {children}
     </CartContext.Provider>
@@ -64,8 +68,8 @@ export const useCart = () => {
   return useContext(CartContext);
 };
 // UI part
-export default function Cart() {
-  const { cartItems, removeItemFromCart } = useCart();
+export default function Cart({darkMode}) {
+  const { cartItems, removeItemFromCart,cartTotal } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Handle modal open event only if there are items in the cart
@@ -100,9 +104,21 @@ export default function Cart() {
 
       <Modal
         scrollBehavior="inside"
-        backdrop="blur"
+        backdrop="opaque"
         isOpen={isOpen}
         onClose={onClose}
+        classNames={{
+          body: "py-6",
+          backdrop: "bg-myhouseblue/50 backdrop-opacity-40",
+          base: `border-[#292f46] ${darkMode && "bg-myhouseblue text-white"}`,
+          header: `border-b-[1px] border-[#292f46] rounded-t-lg text-white bg-myhouseblue ${
+            darkMode && "border-white bg-white text-myhouseblue"
+          }`,
+          footer: `border-t-[1px] border-[#292f46] ${
+            darkMode && "border-white"
+          }`,
+          closeButton: `hover:bg-white/5 text-white ${darkMode && "text-myhouseblue"} active:bg-white/10`,
+        }}
       >
         <ModalContent>
           {(onClose) => (
@@ -120,12 +136,25 @@ export default function Cart() {
                       className="flex justify-between"
                     >
                       <div>
-                        <h4 className="font-semibold">{item.itemName}</h4>
-                        <p>Size: {item.itemSize}</p>
-                        <p>Price: ${item.itemPrice}</p>
-                        <p>Quantity: {item.quantity}</p>
+                        <h4 className="font-semibold font-poppins">
+                          {item.itemName}
+                        </h4>
+                        <div className="text-sm font-medium">
+                          <p>
+                            Size:{" "}
+                            <span className="font-normal">{item.itemSize}</span>
+                          </p>
+                          <p>
+                            Price:{" "}
+                            <span className="font-bold">${item.itemPrice}</span>{" "}
+                            <span className="text-lg font-semibold font-poppins">
+                              ×{item.quantity}
+                            </span>
+                          </p>
+                        </div>
                       </div>
                       <Button
+                        className="bg-reddanger"
                         size="sm"
                         color="danger"
                         onPress={() =>
@@ -139,11 +168,27 @@ export default function Cart() {
                 )}
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+                {cartItems.length > 0 && (
+                  <div className="flex justify-between w-full font-extrabold">
+                    <p>${cartTotal.toFixed(2)}</p> {/* Display total */}
+                  </div>
+                )}
+                <Button
+                  className={darkMode&&"text-white"}
+                  color="danger"
+                  variant="light"
+                  onPress={onClose}
+                >
                   Close
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Proceed to Checkout
+                <Button
+                  fullWidth
+                  className="bg-[#41B06E]"
+                  color="primary"
+                  onPress={onClose}
+                  isDisabled={cartItems.length === 0}
+                >
+                  Checkout
                 </Button>
               </ModalFooter>
             </>

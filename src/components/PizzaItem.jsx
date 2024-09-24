@@ -46,7 +46,7 @@ export default function PizzaItem({ id, color }) {
         <DropdownTrigger>
           <Button
             fullWidth
-            className="capitalize bg-background font-poppins text-foreground"
+            className="capitalize bg-[#424242] font-poppins text-white"
             radius="sm"
             color="warning"
             size="sm"
@@ -95,7 +95,12 @@ export default function PizzaItem({ id, color }) {
           <div className="flex flex-col w-full gap-4 px-5">
             <DemoDropDown />
 
-            <Button className="rounded-[20px]" color="danger" size="lg" onClick={addToCart}>
+            <Button
+              className="rounded-[20px] bg-[#41B3A2]"
+              color="primary"
+              size="lg"
+              onClick={addToCart}
+            >
               <AddIcon />
             </Button>
           </div>

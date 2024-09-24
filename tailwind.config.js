@@ -20,6 +20,7 @@ export default {
       lemonburst: "#FFFF80",
       myhouseblue: "#4C5D65",
       peachblossom: "#fadfa1",
+      reddanger: "#FF204E",
     },
     extend: {
       fontFamily: {
