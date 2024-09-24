@@ -1,10 +1,17 @@
 import React from "react";
-import { CardFooter, CardHeader, Link, ScrollShadow } from "@nextui-org/react";
-import { Input } from "@nextui-org/react";
-import { Card, CardBody } from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
-import { Tabs, Tab } from "@nextui-org/react";
-import { Image } from "@nextui-org/react";
+import {
+  CardFooter,
+  CardHeader,
+  Link,
+  ScrollShadow,
+  Input,
+  Card,
+  CardBody,
+  Button,
+  Tabs,
+  Tab,
+  Image,
+} from "@nextui-org/react";
 import windowImg from "../Images/windowPizza.png";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import BrandIcon from "./BrandIcon";
