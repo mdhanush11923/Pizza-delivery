@@ -111,7 +111,7 @@ export default function PizzaItem({ id, color }) {
             title:
               "font-normal font-semibold text-[#F5F5F5] dark:text-charcoalgray",
             content: "text-background text-left  opacity-85",
-            base: "bg-charcoalgray"
+            base: "bg-charcoalgray dark:bg-[#f5f5f5] shadow-none"
           }}
           key="1"
           aria-label="Accordion 1"
