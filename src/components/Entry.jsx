@@ -217,7 +217,6 @@ export default function Entry(props) {
                     onChange={handleSignupChange}
                     value={details.p1}
                     label="Password"
-                    onClear={() => handleSignupClear("p1")} // Clear only the password field
                     endContent={
                       <button
                         className="focus:outline-none"
@@ -239,7 +238,6 @@ export default function Entry(props) {
                     onChange={handleSignupChange}
                     value={details.p2}
                     label="Confirm"
-                    onClear={() => handleSignupClear("p2")} // Clear only the confirm password field
                     endContent={
                       <button
                         className="focus:outline-none"
