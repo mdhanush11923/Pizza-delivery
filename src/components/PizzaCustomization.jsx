@@ -4,38 +4,7 @@ import { Button, Checkbox, CheckboxGroup, Input } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 import customPizzaImg from "../Images/customPizza.png";
 import { useCart } from "./Cart";
-
-const pizzaBases = [
-  { key: "Thin Crust", label: "Thin Crust" },
-  { key: "Thick Crust", label: "Thick Crust" },
-  { key: "Cheese Burst", label: "Cheese Burst" },
-  { key: "Gluten Free", label: "Gluten Free" },
-  { key: "Whole Wheat", label: "Whole Wheat" },
-];
-
-const sauces = [
-  { key: "Tomato Basil", label: "Tomato Basil" },
-  { key: "Barbeque", label: "Barbeque" },
-  { key: "Pesto", label: "Pesto" },
-  { key: "White Garlic", label: "White Garlic" },
-  { key: "Spicy Buffalo", label: "Spicy Buffalo" },
-];
-
-const cheeses = [
-  { key: "Mozzarella", label: "Mozzarella" },
-  { key: "Cheddar", label: "Cheddar" },
-  { key: "Parmesan", label: "Parmesan" },
-  { key: "Feta", label: "Feta" },
-  { key: "Gouda", label: "Gouda" },
-];
-
-const veggiesOptions = [
-  { key: "Bell Peppers", label: "Bell Peppers" },
-  { key: "Mushrooms", label: "Mushrooms" },
-  { key: "Olives", label: "Olives" },
-  { key: "Onions", label: "Onions" },
-  { key: "Spinach", label: "Spinach" },
-];
+import { bases as pizzaBases, sauces, cheeses, veggies as veggiesOptions } from "./pizzaData";
 
 const PizzaCustomization = () => {
   const [base, setBase] = useState(new Set([]));
@@ -90,7 +59,7 @@ const PizzaCustomization = () => {
             onSelectionChange={setBase}
           >
             {pizzaBases.map((item) => (
-              <SelectItem key={item.key}>{item.label}</SelectItem>
+              <SelectItem key={item.name}>{item.name}</SelectItem>
             ))}
           </Select>
 
@@ -101,7 +70,7 @@ const PizzaCustomization = () => {
             onSelectionChange={setSauce}
           >
             {sauces.map((item) => (
-              <SelectItem key={item.key}>{item.label}</SelectItem>
+              <SelectItem key={item.name}>{item.name}</SelectItem>
             ))}
           </Select>
         </div>
@@ -114,7 +83,7 @@ const PizzaCustomization = () => {
             onSelectionChange={setCheese}
           >
             {cheeses.map((item) => (
-              <SelectItem key={item.key}>{item.label}</SelectItem>
+              <SelectItem key={item.name}>{item.name}</SelectItem>
             ))}
           </Select>
 
@@ -144,11 +113,11 @@ const PizzaCustomization = () => {
         >
           {veggiesOptions.map((item) => (
             <Checkbox
-              key={item.key}
-              value={item.key}
+              key={item.name}
+              value={item.name}
               onChange={handleVeggiesChange}
             >
-              {item.label}
+              {item.name}
             </Checkbox>
           ))}
         </CheckboxGroup>
