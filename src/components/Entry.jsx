@@ -68,7 +68,23 @@ export default function Entry(props) {
     }
     // Proceed with signup action (e.g., API call)
     console.log("Sign Up Details:", details);
+    
   }
+
+     function handleLoginClear(inputName) {
+       setLoginDetails((prevDetails) => ({
+         ...prevDetails,
+         [inputName]: "",
+       }));
+     }
+
+     // Clear function for signup form inputs
+     function handleSignupClear(inputName) {
+       setDetails((prevDetails) => ({
+         ...prevDetails,
+         [inputName]: "",
+       }));
+     }
 
   return (
     <div className="flex flex-wrap flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[#3A5565]">
@@ -81,7 +97,9 @@ export default function Entry(props) {
         </CardHeader>
         <CardBody>
           {errorMessage && (
-            <div className="text-reddanger text-center mb-4">{errorMessage}</div>
+            <div className="text-reddanger text-center mb-4">
+              {errorMessage}
+            </div>
           )}
           <Tabs
             variant="underlined"
@@ -100,6 +118,7 @@ export default function Entry(props) {
                   value={loginDetails.email}
                   type="email"
                   label="Email"
+                  onClear={() => handleLoginClear("email")} // Clear only the email field
                 />
                 <Input
                   isClearable
@@ -108,6 +127,7 @@ export default function Entry(props) {
                   value={loginDetails.p1}
                   type="password"
                   label="Password"
+                  onClear={() => handleLoginClear("p1")}
                 />
                 <div className="flex justify-end">
                   <Button className="place-self-end" variant="light">
@@ -143,6 +163,7 @@ export default function Entry(props) {
                     onChange={handleSignupChange}
                     value={details.firstName}
                     label="First Name"
+                    onClear={() => handleSignupClear("firstName")} // Clear only the first name field
                   />
                   <Input
                     name="lastName"
@@ -150,6 +171,7 @@ export default function Entry(props) {
                     onChange={handleSignupChange}
                     value={details.lastName}
                     label="Last Name"
+                    onClear={() => handleSignupClear("lastName")} // Clear only the last name field
                   />
                 </div>
                 <Input
@@ -158,6 +180,7 @@ export default function Entry(props) {
                   onChange={handleSignupChange}
                   value={details.email}
                   label="Email"
+                  onClear={() => handleSignupClear("email")} // Clear only the email field
                 />
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                   <Input
@@ -166,6 +189,7 @@ export default function Entry(props) {
                     onChange={handleSignupChange}
                     value={details.p1}
                     label="Password"
+                    onClear={() => handleSignupClear("p1")} // Clear only the password field
                   />
                   <Input
                     name="p2"
@@ -173,6 +197,7 @@ export default function Entry(props) {
                     onChange={handleSignupChange}
                     value={details.p2}
                     label="Confirm"
+                    onClear={() => handleSignupClear("p2")} // Clear only the confirm password field
                   />
                 </div>
                 <Button
