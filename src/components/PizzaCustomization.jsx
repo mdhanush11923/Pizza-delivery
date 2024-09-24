@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Select, SelectItem } from "@nextui-org/select";
-import { Button, Checkbox, CheckboxGroup, Input } from '@nextui-org/react';
-import { Image } from '@nextui-org/react';
+import { Button, Checkbox, CheckboxGroup, Input } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import customPizzaImg from "../Images/customPizza.png";
+import { useCart } from "./Cart";
 
 const pizzaBases = [
   { key: "Thin Crust", label: "Thin Crust" },
   { key: "Thick Crust", label: "Thick Crust" },
   { key: "Cheese Burst", label: "Cheese Burst" },
   { key: "Gluten Free", label: "Gluten Free" },
-  { key: "Whole Wheat", label: "Whole Wheat" }
+  { key: "Whole Wheat", label: "Whole Wheat" },
 ];
 
 const sauces = [
@@ -17,7 +18,7 @@ const sauces = [
   { key: "Barbeque", label: "Barbeque" },
   { key: "Pesto", label: "Pesto" },
   { key: "White Garlic", label: "White Garlic" },
-  { key: "Spicy Buffalo", label: "Spicy Buffalo" }
+  { key: "Spicy Buffalo", label: "Spicy Buffalo" },
 ];
 
 const cheeses = [
@@ -25,7 +26,7 @@ const cheeses = [
   { key: "Cheddar", label: "Cheddar" },
   { key: "Parmesan", label: "Parmesan" },
   { key: "Feta", label: "Feta" },
-  { key: "Gouda", label: "Gouda" }
+  { key: "Gouda", label: "Gouda" },
 ];
 
 const veggiesOptions = [
@@ -33,7 +34,7 @@ const veggiesOptions = [
   { key: "Mushrooms", label: "Mushrooms" },
   { key: "Olives", label: "Olives" },
   { key: "Onions", label: "Onions" },
-  { key: "Spinach", label: "Spinach" }
+  { key: "Spinach", label: "Spinach" },
 ];
 
 const PizzaCustomization = () => {
@@ -41,6 +42,8 @@ const PizzaCustomization = () => {
   const [sauce, setSauce] = useState(new Set([]));
   const [cheese, setCheese] = useState(new Set([]));
   const [veggies, setVeggies] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const { addItemToCart } = useCart();
 
   const handleVeggiesChange = (event) => {
     const { value, checked } = event.target;
@@ -52,14 +55,31 @@ const PizzaCustomization = () => {
   };
 
   const handleSubmit = () => {
+    const itemId = `${Date.now()}`; // Unique ID based on timestamp
+    const itemName = `Custom Pizza with ${[...base].join(", ")}, ${[
+      ...sauce,
+    ].join(", ")}, ${[...cheese].join(", ")}, and ${veggies.join(", ")}`;
+    const itemPrice = calculatePrice(base, sauce, cheese, veggies); // Implement your own logic to calculate price
+
     const orderData = {
-      base: [...base].join(', '),
-      sauce: [...sauce].join(', '),
-      cheese: [...cheese].join(', '),
-      veggies: veggies.join(', ')
+      itemId,
+      itemName,
+      itemPrice,
+      quantity: quantity,
     };
+
     console.log(orderData);
-    // Handle submission and payment logic
+    addItemToCart(orderData);
+  };
+
+  const calculatePrice = (base, sauce, cheese, veggies) => {
+    // Example logic to calculate the price
+    let price = 10; // Base price
+    price += [...base].length * 1; // Add price based on the number of selected bases
+    price += [...sauce].length * 0.5; // Add price based on the number of selected sauces
+    price += [...cheese].length * 1.5; // Add price based on the number of selected cheeses
+    price += veggies.length * 0.75; // Add price based on the number of selected veggies
+    return price;
   };
 
   return (
@@ -112,15 +132,17 @@ const PizzaCustomization = () => {
             variant="faded"
             type="number"
             label="Quantity"
-            placeholder="0"
+            placeholder="1"
             labelPlacement="inside"
             startContent={
               <div className="pointer-events-none flex items-center">
                 <span className="text-default-400 text-small">🛒</span>
               </div>
             }
-            min={0}
+            min={1}
             max={10}
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
 
