@@ -20,11 +20,14 @@ export const CartProvider = ({ children }) => {
 
   const addItemToCart = (item) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((cartItem) => cartItem.itemId === item.itemId);
+      const existingItem = prevItems.find(
+        (cartItem) =>
+          cartItem.itemId === item.itemId && cartItem.itemSize === item.itemSize
+      );
 
       if (existingItem) {
         return prevItems.map((cartItem) =>
-          cartItem.itemId === item.itemId
+          cartItem.itemId === item.itemId && cartItem.itemSize === item.itemSize
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
@@ -33,6 +36,7 @@ export const CartProvider = ({ children }) => {
       }
     });
   };
+
 
   const removeItemFromCart = (itemId) => {
     setCartItems((prevItems) =>
@@ -74,7 +78,8 @@ export default function Cart() {
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center  m-0">
-            {cartItems.reduce((total, item) => total + item.quantity, 0)} items in cart
+            {cartItems.reduce((total, item) => total + item.quantity, 0)} items
+            in cart
           </h1>
           <Modal
             scrollBehavior="inside"
