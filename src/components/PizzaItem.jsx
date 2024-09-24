@@ -16,7 +16,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-import { Divider } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
@@ -74,7 +73,7 @@ export default function PizzaItem({ id, color }) {
   }
 
   return (
-    <Card className="w-[275px] flex flex-col justify-evenly bg-foreground  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-sm">
+    <Card className="w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-sm">
       <Card
         style={{ backgroundColor: color }}
         className={`w-[275px] justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-sm`}
@@ -106,12 +105,13 @@ export default function PizzaItem({ id, color }) {
           </div>
         </div>
       </Card>
-      <Accordion isCompact variant="bordered">
+      <Accordion isCompact variant="splitted">
         <AccordionItem
           classNames={{
             title:
               "font-normal font-semibold text-[#F5F5F5] dark:text-charcoalgray",
             content: "text-background text-left  opacity-85",
+            base: "bg-charcoalgray"
           }}
           key="1"
           aria-label="Accordion 1"

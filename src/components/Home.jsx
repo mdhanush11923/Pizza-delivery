@@ -54,7 +54,7 @@ export default function Home() {
       <h1 className="scroll-m-20 text-4xl font-poppins font-extrabold tracking-tight text-center lg:text-4xl">
         Featured Pizzas
       </h1>
-      <div className="flex flex-wrap gap-20 justify-center">
+      <div className="flex flex-wrap gap-20 justify-center items-center">
         <PizzaItem color="bg-limefrost" id={0} />
         <PizzaItem color="bg-lemonburst" id={1} />
         <PizzaItem color="bg-limefrost" id={2} />
