@@ -21,8 +21,8 @@ export default function Home() {
               Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
               ⏩delivered fast!
             </h2>
-            <div className="flex flex-row gap-4 mt-10">
-              <Button
+            <div className="flex flex-col gap-4 mt-10">
+              {/* <Button
                 className="h-14 w-32"
                 color="primary"
                 radius="sm"
@@ -42,30 +42,31 @@ export default function Home() {
                 as={Link}
               >
                 Sign up
-              </Button>
+              </Button> */}
 
-              {/* <Button
+              <Button
                 fullWidth
-                className="h-14 w-72 text-white hover:bg-[#0000a1]"
+                className="h-14 w-72 bg-foreground text-background"
                 color="success"
                 radius="sm"
                 size="lg"
-                href="/pizza-delivery/menu"
+                href="/pizza-delivery/dashboard/menu"
                 as={Link}
               >
                 Explore Menu
               </Button>
               <Button
                 fullWidth
-                className="h-14 w-72 text-white hover:bg-[#0000a1]"
+                className="h-14 w-72"
                 color="warning"
                 radius="sm"
                 size="lg"
-                href="/pizza-delivery/custom"
+                variant="ghost"
+                href="/pizza-delivery/dashboard/custom"
                 as={Link}
               >
                 Custom Pizza
-              </Button> */}
+              </Button>
             </div>
           </div>
           <div className={`max-md:w-full`}>

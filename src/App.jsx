@@ -32,6 +32,12 @@ export default function App() {
           <Routes>
             <Route
               path="/pizza-delivery/"
+              element={
+                <StartPage darkMode={darkMode} changeMode={changeMode} />
+              }
+            />
+            <Route
+              path="/pizza-delivery/dashboard"
               element={<Layout darkMode={darkMode} changeMode={changeMode} />}
               // element={
               //   <StartPage darkMode={darkMode} changeMode={changeMode} />
@@ -49,7 +55,7 @@ export default function App() {
                 }
               />
               <Route
-                path="/pizza-delivery/menu"
+                path="/pizza-delivery/dashboard/menu"
                 element={
                   <React.Suspense
                     fallback={<Loading displayItem="Loading Menu..." />}
@@ -59,7 +65,7 @@ export default function App() {
                 }
               />
               <Route
-                path="/pizza-delivery/custom"
+                path="/pizza-delivery/dashboard/custom"
                 element={
                   <React.Suspense
                     fallback={
@@ -71,7 +77,7 @@ export default function App() {
                 }
               />
               <Route
-                path="/pizza-delivery/orders"
+                path="/pizza-delivery/dashboard/orders"
                 element={
                   <React.Suspense
                     fallback={<Loading displayItem="Loading Orders..." />}
@@ -81,6 +87,7 @@ export default function App() {
                 }
               />
             </Route>
+
             <Route
               path="/pizza-delivery/login"
               element={

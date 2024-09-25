@@ -26,11 +26,11 @@ export default function Topbar(props) {
   const { cartCount } = useCart();
   const navigate = useNavigate();
   const menuItems = [
-    { title: "Home", path: "/pizza-delivery/" },
-    { title: "Menu", path: "/pizza-delivery/menu" },
-    { title: "Custom", path: "/pizza-delivery/custom" },
-    { title: "Orders", path: "/pizza-delivery/orders" },
-    { title: "Log Out", path: "/pizza-delivery/logout" },
+    { title: "Home", path: "/pizza-delivery/dashboard" },
+    { title: "Menu", path: "/pizza-delivery/dashboard/menu" },
+    { title: "Custom", path: "/pizza-delivery/dashboard/custom" },
+    { title: "Orders", path: "/pizza-delivery/dashboard/orders" },
+    { title: "Log Out", path: "/pizza-delivery/" },
   ];
 
   const handleMenuItemClick = (path) => {

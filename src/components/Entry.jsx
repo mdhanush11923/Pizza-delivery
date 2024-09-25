@@ -93,7 +93,7 @@ export default function Entry(props) {
     }
 
     setErrorMessage("");
-    navigate("/pizza-delivery/"); // Navigate to the selected path
+    navigate("/pizza-delivery/dashboard"); // Navigate to the selected path
 
     console.log("Login Details:", loginDetails);
   }

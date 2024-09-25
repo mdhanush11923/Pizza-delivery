@@ -86,23 +86,6 @@ const PizzaCustomization = () => {
               <SelectItem key={item.name}>{item.name}</SelectItem>
             ))}
           </Select>
-
-          <Input
-            variant="faded"
-            type="number"
-            label="Quantity"
-            placeholder="1"
-            labelPlacement="inside"
-            startContent={
-              <div className="pointer-events-none flex items-center">
-                <span className="text-default-400 text-small">🛒</span>
-              </div>
-            }
-            min={1}
-            max={10}
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
         </div>
 
         <CheckboxGroup
