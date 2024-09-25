@@ -72,8 +72,8 @@ const PizzaComponent = () => {
   };
 
   return (
-    <div>
-      <h1>Pizza Management App</h1>
+    <div className="flex flex-col gap-5 p-10">
+      <h1 className="font-extrabold font-poppins text-3xl">Pizza Management App</h1>
 
       <h2>Add New Pizza</h2>
       <Input
