@@ -332,6 +332,7 @@ export default function Entry(props) {
                   Sign Up
                 </Button>
                 <Snackbar
+                  anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                   open={openSignupAlert}
                   autoHideDuration={6000}
                   onClose={handleAlertClose}
