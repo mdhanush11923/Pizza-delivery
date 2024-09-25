@@ -11,7 +11,7 @@ export default function Home() {
     <div className="flex flex-col gap-10 py-10 sm:p-16">
       <div>
         <div
-          className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-20 lg:px-20`}
+          className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-8 lg:px-24`}
         >
           <div className="max-w-lg gap-4">
             <h1 className="scroll-m-20 mb-4 font-black tracking-tight text-3xl lg:text-5xl">
@@ -21,7 +21,7 @@ export default function Home() {
               Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
               ⏩delivered fast!
             </h2>
-            <div className="flex gap-4 mt-14">
+            <div className="flex flex-row gap-4 mt-10">
               <Button
                 className="h-14 w-32"
                 color="primary"
@@ -43,6 +43,29 @@ export default function Home() {
               >
                 Sign up
               </Button>
+
+              {/* <Button
+                fullWidth
+                className="h-14 w-72 text-white hover:bg-[#0000a1]"
+                color="success"
+                radius="sm"
+                size="lg"
+                href="/pizza-delivery/menu"
+                as={Link}
+              >
+                Explore Menu
+              </Button>
+              <Button
+                fullWidth
+                className="h-14 w-72 text-white hover:bg-[#0000a1]"
+                color="warning"
+                radius="sm"
+                size="lg"
+                href="/pizza-delivery/custom"
+                as={Link}
+              >
+                Custom Pizza
+              </Button> */}
             </div>
           </div>
           <div className={`max-md:w-full`}>

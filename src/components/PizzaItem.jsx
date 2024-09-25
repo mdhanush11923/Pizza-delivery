@@ -111,13 +111,29 @@ export default function PizzaItem({ id, color }) {
             title:
               "font-normal font-semibold text-[#F5F5F5] dark:text-charcoalgray",
             content: "text-background text-left  opacity-85",
-            base: "bg-charcoalgray dark:bg-[#f5f5f5] shadow-none"
+            base: "bg-charcoalgray dark:bg-[#f5f5f5] shadow-none",
           }}
           key="1"
           aria-label="Accordion 1"
           title="Description"
         >
-          {pizza.description}
+          <p>{pizza.description}</p>
+          <p>-</p>
+          <p className="text-sm">
+            Base: <span className="font-light">{pizza.base}</span>
+          </p>
+          <p className="text-sm">
+            Sauce: <span className="font-light">{pizza.sauce}</span>
+          </p>
+          <p className="text-sm">
+            Cheese: <span className="font-light">{pizza.cheese}</span>
+          </p>
+          <p className="text-sm">
+            Veggies: <span className="font-light">{pizza.veggies}</span>
+          </p>
+          <p className="text-sm">
+            Category: <span className="font-light">{pizza.category}</span>
+          </p>
         </AccordionItem>
       </Accordion>
       <div className="flex px-5 justify-between">
