@@ -36,8 +36,7 @@ export default function App() {
             <Route
               path="/pizza-delivery/"
               element={
-                // <StartPage darkMode={darkMode} changeMode={changeMode} />
-<PizzaComponent/>
+                <StartPage darkMode={darkMode} changeMode={changeMode} />
               }
             />
             <Route
@@ -111,6 +110,12 @@ export default function App() {
                 </React.Suspense>
               }
             />
+            <Route
+            path="/pizza-delivery/admin"
+            element={
+              <PizzaComponent />
+            }
+             />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </CartProvider>

@@ -237,7 +237,7 @@ export default function Entry(props) {
                 </Button>
 
                 <div className="flex justify-center">
-                  <Button className="place-self-center" variant="light">
+                  <Button className="place-self-center" variant="light" href="/pizza-delivery/admin">
                     Admin?
                   </Button>
                 </div>
