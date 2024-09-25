@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import { CartProvider } from "./components/Cart";
 import Loading from "./components/Loading";
 import StartPage from "./components/StartPage";
+import ErrorPage from "./components/Error";
 
 // Lazy loading all components
 const LazyHome = React.lazy(() => import("./components/Home"));
@@ -100,6 +101,7 @@ export default function App() {
                 </React.Suspense>
               }
             />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </CartProvider>
       </main>
