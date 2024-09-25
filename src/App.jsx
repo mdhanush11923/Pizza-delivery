@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import Layout from "./components/Layout";
 import { CartProvider } from "./components/Cart";
 import Loading from "./components/Loading";
+import StartPage from "./components/StartPage";
 
 // Lazy loading all components
 const LazyHome = React.lazy(() => import("./components/Home"));
@@ -31,12 +32,17 @@ export default function App() {
             <Route
               path="/pizza-delivery/"
               element={<Layout darkMode={darkMode} changeMode={changeMode} />}
+              // element={
+              //   <StartPage darkMode={darkMode} changeMode={changeMode} />
+              // }
             >
               {/* Using Suspense for lazy-loaded routes */}
               <Route
                 index
                 element={
-                  <React.Suspense fallback={<Loading displayItem="Loading Home..." />}>
+                  <React.Suspense
+                    fallback={<Loading displayItem="Loading Home..." />}
+                  >
                     <LazyHome />
                   </React.Suspense>
                 }
@@ -44,7 +50,9 @@ export default function App() {
               <Route
                 path="/pizza-delivery/menu"
                 element={
-                  <React.Suspense fallback={<Loading displayItem="Loading Menu..." />}>
+                  <React.Suspense
+                    fallback={<Loading displayItem="Loading Menu..." />}
+                  >
                     <LazyMenu />
                   </React.Suspense>
                 }
@@ -53,7 +61,9 @@ export default function App() {
                 path="/pizza-delivery/custom"
                 element={
                   <React.Suspense
-                    fallback={<Loading displayItem="Loading Customization..." />}
+                    fallback={
+                      <Loading displayItem="Loading Customization..." />
+                    }
                   >
                     <LazyPizzaCustomization />
                   </React.Suspense>
@@ -62,7 +72,9 @@ export default function App() {
               <Route
                 path="/pizza-delivery/orders"
                 element={
-                  <React.Suspense fallback={<Loading displayItem="Loading Orders..." />}>
+                  <React.Suspense
+                    fallback={<Loading displayItem="Loading Orders..." />}
+                  >
                     <LazyOrders />
                   </React.Suspense>
                 }
@@ -71,7 +83,9 @@ export default function App() {
             <Route
               path="/pizza-delivery/login"
               element={
-                <React.Suspense fallback={<Loading displayItem="Loading Login..." />}>
+                <React.Suspense
+                  fallback={<Loading displayItem="Loading Login..." />}
+                >
                   <LazyEntry darkMode={darkMode} defaultTab="login" />
                 </React.Suspense>
               }
@@ -79,7 +93,9 @@ export default function App() {
             <Route
               path="/pizza-delivery/signup"
               element={
-                <React.Suspense fallback={<Loading displayItem="Loading Signup..." />}>
+                <React.Suspense
+                  fallback={<Loading displayItem="Loading Signup..." />}
+                >
                   <LazyEntry darkMode={darkMode} defaultTab="signup" />
                 </React.Suspense>
               }

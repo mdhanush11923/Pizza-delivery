@@ -51,6 +51,9 @@ export const CartProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0)
     );
+    if (updatedItems.length === 0) {
+      onClose(); // Close the modal if the cart is empty
+    }
   };
 
 

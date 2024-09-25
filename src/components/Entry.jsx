@@ -77,6 +77,9 @@ export default function Entry(props) {
       setErrorMessage("You are not signed up yet.");
       return;
     }
+
+    setErrorMessage("");
+    
     console.log("Login Details:", loginDetails);
   }
   function handleSignupSubmit() {
@@ -103,6 +106,7 @@ export default function Entry(props) {
 
     // Proceed with signup action (e.g., API call)
     isSignedUp = true;
+    setErrorMessage("");
     console.log("Sign Up Details:", details);
   }
 

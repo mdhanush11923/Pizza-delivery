@@ -56,8 +56,8 @@ export default function Home() {
       </h1>
       <div className="flex flex-wrap gap-20 justify-center items-center">
         <PizzaItem color="bg-limefrost" id={0} />
-        <PizzaItem color="bg-lemonburst" id={1} />
-        <PizzaItem color="bg-limefrost" id={2} />
+        <PizzaItem color="bg-lemonburst" id={11} />
+        <PizzaItem color="bg-limefrost" id={20} />
       </div>
     </div>
   );
