@@ -335,7 +335,6 @@ export default function Entry(props) {
                   anchorOrigin={{ vertical: "top", horizontal: "right" }}
                   open={openSignupAlert}
                   autoHideDuration={6000}
-                  TransitionComponent={<Slide {...props} direction="up" />}
                   onClose={handleAlertClose}
                 >
                   <Alert
