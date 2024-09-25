@@ -44,7 +44,7 @@ export default function StartPage({ darkMode, changeMode }) {
               >
                 Sign up
               </Button>
-              <div className="flex ml-5 mt-8 sm:mt-0">
+              <div className="flex m-5">
                 <ThemeSwitcher
                   onSwitch={changeMode}
                   condition={darkMode}
