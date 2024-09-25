@@ -12,7 +12,7 @@ export default function StartPage({ darkMode, changeMode }) {
     <div className="flex flex-col gap-10 py-10 sm:p-16">
       <div>
         <div
-          className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-20 lg:px-20`}
+          className={`items-center justify-center h-2/6 flex max-md:flex-wrap-reverse px-16 gap-20 lg:px-20`}
         >
           <div className="max-w-lg gap-4">
             <h1 className="scroll-m-20 mb-4 font-black tracking-tight text-3xl lg:text-5xl">
@@ -22,7 +22,7 @@ export default function StartPage({ darkMode, changeMode }) {
               Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
               ⏩delivered fast!
             </h2>
-            <div className="flex gap-4 mt-14">
+            <div className="flex flex-wrap gap-3 mt-14">
               <Button
                 className="h-14 w-32"
                 color="primary"
@@ -44,6 +44,12 @@ export default function StartPage({ darkMode, changeMode }) {
               >
                 Sign up
               </Button>
+              <div className="flex ml-5 mt-8 sm:mt-0">
+                <ThemeSwitcher
+                  onSwitch={changeMode}
+                  condition={darkMode}
+                />
+              </div>
             </div>
           </div>
           <div className={`max-md:w-full`}>
