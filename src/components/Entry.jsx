@@ -17,6 +17,8 @@ import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import BrandIcon from "./BrandIcon";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Alert from "@mui/material/Alert";
+import { Snackbar } from "@mui/material";
 
 export default function Entry(props) {
   const [isVisible, setIsVisible] = React.useState({
@@ -33,8 +35,10 @@ export default function Entry(props) {
   };
 
   const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
-  
+
   var isSignedUp = false;
+
+  const [openSignupAlert, setOpenSignupAlert] = React.useState(false);
 
   const [details, setDetails] = React.useState({
     email: "",
@@ -50,6 +54,14 @@ export default function Entry(props) {
   });
 
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  const handleAlertClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSignupAlert(false);
+  };
 
   function handleSignupChange(event) {
     const { name, value } = event.target;
@@ -79,7 +91,7 @@ export default function Entry(props) {
     }
 
     setErrorMessage("");
-    
+
     console.log("Login Details:", loginDetails);
   }
   function handleSignupSubmit() {
@@ -107,6 +119,8 @@ export default function Entry(props) {
     // Proceed with signup action (e.g., API call)
     isSignedUp = true;
     setErrorMessage("");
+    setOpenSignupAlert(true);
+
     console.log("Sign Up Details:", details);
   }
 
@@ -260,7 +274,7 @@ export default function Entry(props) {
                 />
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                   <Input
-                  isClearable
+                    isClearable
                     name="p1"
                     type={isVisible.signupPassword ? "text" : "password"}
                     onChange={handleSignupChange}
@@ -282,7 +296,7 @@ export default function Entry(props) {
                     }
                   />
                   <Input
-                  isClearable
+                    isClearable
                     name="p2"
                     type={isVisible.signupConfirm ? "text" : "password"}
                     onChange={handleSignupChange}
@@ -314,6 +328,20 @@ export default function Entry(props) {
                 >
                   Sign Up
                 </Button>
+                <Snackbar
+                  open={openSignupAlert}
+                  autoHideDuration={6000}
+                  onClose={handleAlertClose}
+                >
+                  <Alert
+                    onClose={handleAlertClose}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: "100%" }}
+                  >
+                    You’ve successfully signed up. Please log in to continue.
+                  </Alert>
+                </Snackbar>
               </div>
             </Tab>
           </Tabs>
