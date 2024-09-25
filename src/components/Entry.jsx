@@ -13,12 +13,12 @@ import {
   Image,
 } from "@nextui-org/react";
 import windowImg from "../Images/windowPizza.png";
-import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import BrandIcon from "./BrandIcon";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Alert from "@mui/material/Alert";
 import { Snackbar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Entry(props) {
   const [isVisible, setIsVisible] = React.useState({
@@ -36,7 +36,7 @@ export default function Entry(props) {
 
   const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
 
-  var isSignedUp = false;
+  const [isSignedUp, setIsSignedUp] = React.useState(false);
 
   const [openSignupAlert, setOpenSignupAlert] = React.useState(false);
 
@@ -54,6 +54,8 @@ export default function Entry(props) {
   });
 
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  const navigate = useNavigate();
 
   const handleAlertClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -91,6 +93,7 @@ export default function Entry(props) {
     }
 
     setErrorMessage("");
+    navigate("/pizza-delivery/"); // Navigate to the selected path
 
     console.log("Login Details:", loginDetails);
   }
@@ -117,9 +120,9 @@ export default function Entry(props) {
     }
 
     // Proceed with signup action (e.g., API call)
-    isSignedUp = true;
     setErrorMessage("");
     setOpenSignupAlert(true);
+    setIsSignedUp(true);
 
     console.log("Sign Up Details:", details);
   }
