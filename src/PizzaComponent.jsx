@@ -171,7 +171,7 @@ const PizzaComponent = () => {
       <Button onClick={addPizza}>Add Pizza</Button>
 
       <h2>Pizza List</h2>
-      <ul>
+      <ul className="flex flex-col gap-8">
         {pizzas.map((pizza) => (
           <li key={pizza._id}>
             {pizza._id === editPizza?._id ? (
