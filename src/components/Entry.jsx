@@ -240,6 +240,9 @@ export default function Entry(props) {
                   <Button
                     className="place-self-center"
                     variant="light"
+                    onClick={() => {
+                      navigate("/pizza-delivery/admin");
+                    }}
                     href="/pizza-delivery/admin"
                   >
                     Admin?
