@@ -56,10 +56,15 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-
   return (
     <CartContext.Provider
-      value={{ cartItems, cartCount,cartTotal, addItemToCart, removeItemFromCart }}
+      value={{
+        cartItems,
+        cartCount,
+        cartTotal,
+        addItemToCart,
+        removeItemFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>
@@ -71,9 +76,39 @@ export const useCart = () => {
   return useContext(CartContext);
 };
 // UI part
-export default function Cart({darkMode}) {
-  const { cartItems, removeItemFromCart,cartTotal } = useCart();
+export default function Cart({ darkMode }) {
+  const { cartItems, removeItemFromCart, cartTotal } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // Function to initiate Razorpay payment
+  const handlePayment = () => {
+    const options = {
+      key: "rzp_test_erkUjbE4TD28ds", // Replace with your Razorpay Key ID
+      amount: cartTotal * 100, // Amount in paise (convert to paise for Razorpay)
+      currency: "INR",
+      name: "PIZzA Delivery",
+      description: "Test Transaction", // Replace with your logo URL
+      handler: function (response) {
+        alert("Payment ID: " + response.razorpay_payment_id);
+        alert("Order ID: " + response.razorpay_order_id);
+        alert("Signature: " + response.razorpay_signature);
+        // Here you can send the response to your server for further processing
+      },
+      prefill: {
+        name: "Customer Name",
+        email: "customer@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "note value",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    const rzp1 = new Razorpay(options);
+    rzp1.open();
+  };
 
   return (
     <div>
@@ -178,7 +213,7 @@ export default function Cart({darkMode}) {
                   fullWidth
                   className="bg-[#41B06E]"
                   color="primary"
-                  onPress={onClose}
+                  onPress={handlePayment} // Call payment function on press
                   isDisabled={cartItems.length === 0}
                 >
                   Checkout

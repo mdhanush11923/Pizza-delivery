@@ -6,11 +6,14 @@ import { CartProvider } from "./components/Cart";
 import Loading from "./components/Loading";
 import StartPage from "./components/StartPage";
 import ErrorPage from "./components/Error";
+import PizzaComponent from "./PizzaComponent";
 
 // Lazy loading all components
 const LazyHome = React.lazy(() => import("./components/Home"));
 const LazyMenu = React.lazy(() => import("./components/Menu"));
-const LazyPizzaCustomization = React.lazy(() => import("./components/PizzaCustomization"));
+const LazyPizzaCustomization = React.lazy(() =>
+  import("./components/PizzaCustomization")
+);
 const LazyOrders = React.lazy(() => import("./components/Orders"));
 const LazyEntry = React.lazy(() => import("./components/Entry"));
 
@@ -33,7 +36,8 @@ export default function App() {
             <Route
               path="/pizza-delivery/"
               element={
-                <StartPage darkMode={darkMode} changeMode={changeMode} />
+                // <StartPage darkMode={darkMode} changeMode={changeMode} />
+<PizzaComponent/>
               }
             />
             <Route
@@ -87,7 +91,6 @@ export default function App() {
                 }
               />
             </Route>
-
             <Route
               path="/pizza-delivery/login"
               element={
