@@ -17,7 +17,7 @@ import BrandIcon from "./BrandIcon";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Alert from "@mui/material/Alert";
-import { Snackbar } from "@mui/material";
+import { Slide, Snackbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function Entry(props) {
@@ -332,9 +332,10 @@ export default function Entry(props) {
                   Sign Up
                 </Button>
                 <Snackbar
-                  anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                  anchorOrigin={{ vertical: "top", horizontal: "right" }}
                   open={openSignupAlert}
                   autoHideDuration={6000}
+                  TransitionComponent={<Slide {...props} direction="up" />}
                   onClose={handleAlertClose}
                 >
                   <Alert

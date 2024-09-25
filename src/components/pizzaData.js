@@ -8,6 +8,32 @@ import buffaloChicken from "../Images/BuffaloChicken.png";
 import meatLovers from "../Images/MeatLovers.png";
 import pestoVeggie from "../Images/PestoVeggie.png";
 
+const createPizza = (
+  id,
+  name,
+  description,
+  price,
+  base,
+  sauce,
+  cheese,
+  veggie,
+  category,
+  image,
+  availableQuantity
+) => ({
+  id,
+  name,
+  description,
+  prices: price,
+  base,
+  sauce,
+  cheese,
+  veggies: veggie,
+  category,
+  image,
+  availableQuantity,
+});
+
 const pizzas = [
   {
     id: 0,
@@ -599,6 +625,8 @@ const nonVegetarianPizzas = pizzas.filter(
 );
 
 export default pizzas;
+
+export {createPizza};
 
 export {
   vegetarianPizzas,
