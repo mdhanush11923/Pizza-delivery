@@ -587,7 +587,6 @@ const veggies = [
   { name: "Onions", availableQuantity: 50 },
   { name: "Spinach", availableQuantity: 50 },
   { name: "Mushrooms", availableQuantity: 50 },
-  { name: "Zucchini", availableQuantity: 50 },
   { name: "Cherry Tomatoes", availableQuantity: 50 },
 ];
 
