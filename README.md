@@ -56,11 +56,9 @@ Check out the website and video demo here:
 
 [𝗪𝗲𝗯𝘀𝗶𝘁𝗲 𝗹𝗶𝗻𝗸: https://mdhanush11923.github.io/pizza-delivery/]
 
-<iframe
-  src="https://drive.google.com/file/d/1rZnHarXSBTvI2pNgjpBFCTPPVRMOFv_N/view?usp=sharing"
-  width="640"
-  height="480"
-  allow="autoplay"
-></iframe>
+<video width="640" height="480" controls>
+  <source src="https://drive.google.com/file/d/1rZnHarXSBTvI2pNgjpBFCTPPVRMOFv_N/view?usp=sharing" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 #Internship #WebDevelopment #FullStackDeveloper #NextUI #MaterialUI #React #MongoDB #NodeJS #Razorpay #PizzaDeliveryApp #OasisInfobyte #TechJourney #UIUX #SingleHandedProject #Level3Task #Vite #TailwindCSS
