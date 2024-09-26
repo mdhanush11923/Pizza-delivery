@@ -72,7 +72,7 @@ export default function Topbar(props) {
           variant="light"
           href="/pizza-delivery/"
         >
-          LoginOut
+          Loginout
         </Link>
       </NavbarItem>
       <NavbarContent justify="end">
