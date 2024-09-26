@@ -65,6 +65,16 @@ export default function Topbar(props) {
           ))}
         </Tabs>
       </NavbarContent>
+      <NavbarItem className="hidden md:flex">
+        <Link
+          isBlock
+          color="danger"
+          variant="light"
+          href="/pizza-delivery/"
+        >
+          LoginOut
+        </Link>
+      </NavbarItem>
       <NavbarContent justify="end">
         <NavbarItem>
           <IconButton aria-label="cart">
@@ -78,6 +88,7 @@ export default function Topbar(props) {
             </Badge>
           </IconButton>
         </NavbarItem>
+
         {false && (
           <NavbarItem className="hidden md:flex">
             <Link
