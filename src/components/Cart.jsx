@@ -103,7 +103,7 @@ export default function Cart({ darkMode }) {
         address: "note value",
       },
       theme: {
-        color: "#3399cc",
+        color: "bg-myhouseblue",
       },
     };
     const rzp1 = new Razorpay(options);
