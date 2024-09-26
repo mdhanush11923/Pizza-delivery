@@ -27,9 +27,11 @@ export default function App() {
   }
 
   return (
-    <NextUIProvider navigate={navigate} useHref={useHref}>
+    <NextUIProvider>
       <main
-        className={`${darkMode && "dark"} text-foreground bg-background h-full`}
+        className={`${
+          darkMode ? "dark" : ""
+        } text-foreground bg-background h-full`}
       >
         <CartProvider>
           <Routes>
@@ -42,9 +44,6 @@ export default function App() {
             <Route
               path="/pizza-delivery/dashboard"
               element={<Layout darkMode={darkMode} changeMode={changeMode} />}
-              // element={
-              //   <StartPage darkMode={darkMode} changeMode={changeMode} />
-              // }
             >
               {/* Using Suspense for lazy-loaded routes */}
               <Route
@@ -110,12 +109,7 @@ export default function App() {
                 </React.Suspense>
               }
             />
-            <Route
-            path="/pizza-delivery/admin"
-            element={
-              <PizzaComponent />
-            }
-             />
+            <Route path="/pizza-delivery/admin" element={<PizzaComponent />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </CartProvider>
