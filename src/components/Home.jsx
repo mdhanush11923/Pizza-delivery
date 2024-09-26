@@ -57,8 +57,9 @@ export default function Home() {
               </Button>
               <Button
                 fullWidth
-                className="h-14 w-72 text-background"
+                className="h-14 w-72"
                 color="warning"
+                variant="ghost"
                 radius="sm"
                 size="lg"
                 href="/pizza-delivery/dashboard/custom"
