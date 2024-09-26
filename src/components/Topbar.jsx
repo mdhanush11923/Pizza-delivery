@@ -38,6 +38,10 @@ export default function Topbar(props) {
     navigate(path); // Navigate to the selected path
   };
 
+  function handleLogout(path) {
+    navigate(path);
+  }
+
   return (
     <Navbar
       maxWidth
@@ -68,7 +72,7 @@ export default function Topbar(props) {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">
-          <Button isBlock color="danger" variant="light" href="/pizza-delivery/">
+          <Button color="danger" onClick={handleLogout} variant="light">
             Logout
           </Button>
         </NavbarItem>
