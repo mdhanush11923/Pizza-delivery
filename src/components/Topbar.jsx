@@ -65,17 +65,13 @@ export default function Topbar(props) {
           ))}
         </Tabs>
       </NavbarContent>
-      <NavbarItem className="hidden md:flex">
-        <Link
-          isBlock
-          color="danger"
-          variant="light"
-          href="/pizza-delivery/"
-        >
-          Loginout
-        </Link>
-      </NavbarItem>
+
       <NavbarContent justify="end">
+        <NavbarItem className="hidden md:flex">
+          <Link isBlock color="danger" variant="light" href="/pizza-delivery/">
+            Logout
+          </Link>
+        </NavbarItem>
         <NavbarItem>
           <IconButton aria-label="cart">
             <Badge
