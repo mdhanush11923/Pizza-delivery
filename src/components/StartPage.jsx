@@ -28,7 +28,7 @@ export default function StartPage({ darkMode, changeMode }) {
                 color="primary"
                 radius="sm"
                 size="lg"
-                href="/pizza-delivery/dashboard"
+                href="/pizza-delivery/login"
                 as={Link}
                 variant="ghost"
               >
