@@ -72,7 +72,11 @@ export default function Topbar(props) {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">
-          <Button color="danger" onClick={handleLogout} variant="light">
+          <Button
+            color="danger"
+            onClick={() => handleLogout("/pizza-delivery/")}
+            variant="light"
+          >
             Logout
           </Button>
         </NavbarItem>
