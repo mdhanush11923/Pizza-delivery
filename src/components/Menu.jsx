@@ -54,7 +54,7 @@ export default function Menu() {
           aria-label="Tabs sizes"
         >
           <Tab key="All items" title="Both">
-            <div className="flex flex-wrap justify-center items-center gap-16">
+            <div className="flex flex-wrap  w-full justify-center items-center gap-16">
               {pizzas.map((pizza, index) => (
                 <PizzaItem key={index} id={index} color="bg-peachblossom" />
               ))}

@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "@nextui-org/react";
-import Menu from "./Menu";
 import PizzaImg from "../Images/circlePizza.png";
 import { Divider, Image } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
-import PizzaItem from "./PizzaItem";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export default function StartPage({ darkMode, changeMode }) {
   return (
-    <div className="flex flex-col gap-10 py-10 sm:p-16">
-      <div>
+    <div className="h-screen">
+      <div className="flex flex-col gap-10 py-10 sm:p-16">
         <div
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap-reverse px-16 gap-20 lg:px-20`}
         >
@@ -45,10 +43,7 @@ export default function StartPage({ darkMode, changeMode }) {
                 Sign up
               </Button>
               <div className="flex m-5">
-                <ThemeSwitcher
-                  onSwitch={changeMode}
-                  condition={darkMode}
-                />
+                <ThemeSwitcher onSwitch={changeMode} condition={darkMode} />
               </div>
             </div>
           </div>
