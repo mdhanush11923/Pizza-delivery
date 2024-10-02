@@ -22,7 +22,7 @@ export default function StartPage({ darkMode, changeMode }) {
             </h2>
             <div className="flex flex-wrap gap-3 mt-14">
               <Button
-                className="h-14 w-32"
+                className="h-16 w-full sm:w-44"
                 color="primary"
                 radius="sm"
                 size="lg"
@@ -33,7 +33,7 @@ export default function StartPage({ darkMode, changeMode }) {
                 Login
               </Button>
               <Button
-                className="h-14 w-32 hover:bg-[#0000a1]"
+                className="h-16 w-full sm:w-44 hover:bg-[#0000a1]"
                 color="primary"
                 radius="sm"
                 size="lg"
