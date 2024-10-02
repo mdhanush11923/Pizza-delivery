@@ -4,6 +4,7 @@ import PizzaImg from "../Images/circlePizza.png";
 import { Divider, Image } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import BrandIcon from "./BrandIcon";
 
 export default function StartPage({ darkMode, changeMode }) {
   return (
@@ -13,10 +14,16 @@ export default function StartPage({ darkMode, changeMode }) {
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-20 lg:px-20`}
         >
           <div className="max-w-lg gap-4">
+            <div className="flex gap-10">
+              <BrandIcon />
+              <div className="">
+                <ThemeSwitcher onSwitch={changeMode} condition={darkMode} />
+              </div>
+            </div>
             <h1 className="scroll-m-20 mb-4 mt-10 font-black tracking-tight text-3xl lg:text-5xl">
               Delicious Pizza Delivered Right to Your Doorstep
             </h1>
-            <h2 className="scroll-m-20 pb-2 text-xl font-medium tracking-tight mt-6">
+            <h2 className="scroll-m-20 pb-2 text-xl tracking-tight mt-6">
               Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
               ⏩delivered fast!
             </h2>
@@ -42,9 +49,6 @@ export default function StartPage({ darkMode, changeMode }) {
               >
                 Sign up
               </Button>
-              <div className="flex m-5">
-                <ThemeSwitcher onSwitch={changeMode} condition={darkMode} />
-              </div>
             </div>
           </div>
           <div className={`max-md:w-full`}>
