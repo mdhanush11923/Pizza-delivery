@@ -7,7 +7,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export default function StartPage({ darkMode, changeMode }) {
   return (
-    <div className="h-screen">
+    <div className="h-full">
       <div className="flex flex-col gap-10 py-10 sm:p-16">
         <div
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap-reverse px-16 gap-20 lg:px-20`}
