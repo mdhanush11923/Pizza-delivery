@@ -165,7 +165,7 @@ export default function Entry(props) {
       <Card className="px-6 py-6 rounded-[20px] w-[440px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
-            <h1>Get Started with </h1>
+            <h1>Get Started </h1>
             <BrandIcon />
           </div>
         </CardHeader>
