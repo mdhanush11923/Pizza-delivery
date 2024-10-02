@@ -5,6 +5,7 @@ import { Divider, Image } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import BrandIcon from "./BrandIcon";
+import Footer from "./Footer";
 
 export default function StartPage({ darkMode, changeMode }) {
   return (
@@ -56,6 +57,7 @@ export default function StartPage({ darkMode, changeMode }) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
