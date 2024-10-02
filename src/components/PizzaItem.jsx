@@ -120,19 +120,11 @@ export default function PizzaItem({ id, color }) {
           <p>{pizza.description}</p>
           <p>-</p>
           <p className="text-sm">
-            Base: <span className="font-light">{pizza.base}</span>
-          </p>
-          <p className="text-sm">
-            Sauce: <span className="font-light">{pizza.sauce}</span>
-          </p>
-          <p className="text-sm">
-            Cheese: <span className="font-light">{pizza.cheese}</span>
-          </p>
-          <p className="text-sm">
-            Veggies: <span className="font-light">{pizza.veggies}</span>
-          </p>
-          <p className="text-sm">
-            Category: <span className="font-light">{pizza.category}</span>
+            Base: {pizza.base}, 
+            Sauce:{pizza.sauce}, 
+            Cheese: {pizza.cheese}, 
+            Veggies: {pizza.veggies}, 
+            Category: {pizza.category}
           </p>
         </AccordionItem>
       </Accordion>
