@@ -121,7 +121,7 @@ export default function Cart({ darkMode }) {
           onPress={onOpen}
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
-          <h1 className="text-center  m-0">
+          <h1 className="text-center font-semibold m-0">
             {cartItems.reduce((total, item) => total + item.quantity, 0)} items
             in cart
           </h1>
