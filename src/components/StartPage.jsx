@@ -10,7 +10,7 @@ export default function StartPage({ darkMode, changeMode }) {
     <div className="h-full">
       <div className="flex flex-col gap-10 py-10 sm:p-16">
         <div
-          className={`items-center justify-center h-2/6 flex max-md:flex-wrap-reverse px-16 gap-20 lg:px-20`}
+          className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-20 lg:px-20`}
         >
           <div className="max-w-lg gap-4">
             <h1 className="scroll-m-20 mb-4 font-black tracking-tight text-3xl lg:text-5xl">
