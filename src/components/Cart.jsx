@@ -184,6 +184,7 @@ export default function Cart({ darkMode }) {
                       <Button
                         className="bg-reddanger"
                         size="sm"
+                        variant="solid"
                         color="danger"
                         onPress={() =>
                           removeItemFromCart(item.itemId, item.itemSize)

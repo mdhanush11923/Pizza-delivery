@@ -87,7 +87,7 @@ export default function PizzaItem({ id, color }) {
             isBlurred
           />
           <div>
-            <h1 className="scroll-m-20 text-charcoalgray font-poppins text-2xl font-extrabold tracking-tight">
+            <h1 className="scroll-m-20 text-charcoalgray min-h-16 font-poppins text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
           </div>
