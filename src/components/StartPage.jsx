@@ -6,6 +6,7 @@ import { Button } from "@nextui-org/react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import BrandIcon from "./BrandIcon";
 import Footer from "./Footer";
+import { title } from "./primitives";
 
 export default function StartPage({ darkMode, changeMode }) {
   return (
@@ -25,8 +26,18 @@ export default function StartPage({ darkMode, changeMode }) {
               Delicious Pizza Delivered Right to Your Doorstep
             </h1>
             <h2 className="scroll-m-20 pb-2 text-xl tracking-tight mt-6">
-              Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
-              ⏩delivered fast!
+              Craving pizza? We’ve got you covered!{" "}
+              <span className={title({ color: "yellow", size: "vs" })}>
+                🔥Hot&nbsp;
+              </span>
+              <span className={title({ color: "green", size: "vs" })}>
+                🍃fresh&nbsp;
+              </span>
+              and ⏩
+              <span className={title({ color: "cyan", size: "vs" })}>
+                delivered&nbsp;
+              </span>
+              fast!
             </h2>
             <div className="flex flex-wrap gap-3 mt-14">
               <Button

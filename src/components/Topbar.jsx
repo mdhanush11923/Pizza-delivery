@@ -7,7 +7,6 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
   Button,
   Tab,
   Tabs,
@@ -15,7 +14,7 @@ import {
 } from "@nextui-org/react";
 import BrandIcon from "./BrandIcon";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useCart } from "./Cart";
@@ -38,6 +37,11 @@ export default function Topbar(props) {
     navigate(path); // Navigate to the selected path
   };
 
+    const handleItemClick = (path) => { // Close the menu
+      console.log(path);
+      navigate(path); // Navigate to the selected path
+    };
+
   function handleLogout(path) {
     navigate(path);
   }
@@ -56,18 +60,21 @@ export default function Topbar(props) {
       <NavbarBrand>
         <BrandIcon />
       </NavbarBrand>
-      <NavbarContent className="hidden max-w-full md:flex" justify="center">
-        <Tabs
-          selectedKey={pathname}
-          color="success"
-          size="lg"
-          variant="underlined"
-          aria-label="Navigation tabs"
-        >
-          {menuItems.slice(0, 4).map((item) => (
-            <Tab key={item.path} href={item.path} title={item.title} />
-          ))}
-        </Tabs>
+      <NavbarContent className="hidden w-full md:flex" justify="start">
+        {menuItems.slice(0, 4).map((item) => (
+          <NavbarItem
+            className="data-[active=true]:font-bold"
+            isActive={item.path === pathname}
+            key={item.path}
+          >
+            <Link
+              className="foreground data-[active=true]:font-bold data-[active=true]:text-primary "
+              to={item.path}
+            >
+              {item.title}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent justify="end">

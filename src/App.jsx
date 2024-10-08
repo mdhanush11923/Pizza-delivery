@@ -20,7 +20,7 @@ const LazyEntry = React.lazy(() => import("./components/Entry"));
 export default function App() {
   const navigate = useNavigate();
 
-  const [darkMode, setMode] = React.useState(true);
+  const [darkMode, setMode] = React.useState(false);
 
   function changeMode() {
     setMode(!darkMode);
